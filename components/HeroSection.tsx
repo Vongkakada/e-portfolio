@@ -20,7 +20,7 @@ const HeroSection: React.FC = () => {
         <div className="flex flex-col md:flex-row items-center justify-center gap-12">
           <div className="md:w-1/3 text-center">
             <img 
-              src="https://scontent.fpnh5-2.fna.fbcdn.net/v/t39.30808-6/530197637_771827441881705_7485994719103450681_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=6ee11a&_nc_eui2=AeGqGqQ0F1AUaZeUDPmjzNJMRWIWKJiuYQJFYhYomK5hAouBkQf0ZHBn4w_JmVoh4YUQNf9ZkrW9RU843N2Ek-vq&_nc_ohc=0C0Gnkm8_5cQ7kNvwELvSmX&_nc_oc=AdmfYsJg7jYzcbQZo5DOcCPcugohfCoX3CiJCrEg3_QUutGyuRZLr81NN9K4lBnw55g&_nc_zt=23&_nc_ht=scontent.fpnh5-2.fna&_nc_gid=qwoHdAZv6EQW3BY0jRMTew&oh=00_AfZ7ttDH5UMo5-8OACpLMpSfs7ib8-ZjZ_MqYtG022wt-g&oe=68E17DF9" 
+              src="https://scontent.fpnh5-6.fna.fbcdn.net/v/t39.30808-6/496864008_701392465591870_7424581435838411008_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=a5f93a&_nc_eui2=AeEWwrDcYOVz_9OINsIUoN1SDga04x-oSiQOBrTjH6hKJBcKKsJAcQsDgiLUjL5PFBcSe3c83w9rkRYrw_HQyU1S&_nc_ohc=zp_PBakJA7sQ7kNvwGG-tBM&_nc_oc=AdlZNIcqgOMr0PzAKF41ygSqhSmoDhmB6tvGssnF1rcPhXTy62niEbWn5dRCpzx3HDk&_nc_zt=23&_nc_ht=scontent.fpnh5-6.fna&_nc_gid=jF1SDFyDct3esH_D1KvtJg&oh=00_AfZUUXLNW3BVk5J23oZsgxcCoRlMcixmvla5StymKR28ow&oe=68E18703" 
               alt="VONG KAKADA" 
               className="rounded-full w-48 h-48 md:w-64 md:h-64 object-cover mx-auto shadow-2xl ring-4 ring-offset-4 ring-offset-[#0F0F0F] ring-purple-500"
             />

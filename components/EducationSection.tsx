@@ -1,4 +1,3 @@
-
 import React from 'react';
 import type { Education } from '../types';
 import Section from './Section';
@@ -8,11 +7,13 @@ const educations: Education[] = [
     degree: 'Completed a Bachelor of Science in Information Technology.',
     institution: 'Cambodian University for Specialties',
     period: '2022 - 2024',
+    imageUrl: 'https://scontent.fpnh5-2.fna.fbcdn.net/v/t39.30808-6/555451823_1358169416311829_2472120701005351006_n.jpg?stp=cp6_dst-jpg_tt6&_nc_cat=102&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeGAp00ohHBMng5E2hrHZ4yIHXiZQ62C3VEdeJlDrYLdUajJFI1ygH8MZ9jS10qjDV8AXyayucLzOnuGUfMSSKLj&_nc_ohc=SzFZf8vbH38Q7kNvwEzA9qC&_nc_oc=AdnIxX7Q9gVThYuGYFpEzCUkufJiyZ9nqWpvE-kbSoHFZOZ4NIXbDw1G5GTjIHGNnOc&_nc_zt=23&_nc_ht=scontent.fpnh5-2.fna&_nc_gid=pW1BOqUK5OWfCwqH0Ze_VA&oh=00_Afaz3DAwNDvJip81ZyyCMpwvpOOy2IhoHBHnA5iKWo05bA&oe=68E17E32',
   },
   {
     degree: 'Bachelor of Arts in Mathematics',
     institution: 'National University of CheaSim Kamchaymear, Kampong Cham Campus',
     period: '2019 - 2022',
+    imageUrl: 'https://scontent.fpnh5-4.fna.fbcdn.net/v/t39.30808-6/487450581_4038456703034863_7635011793623442254_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=cc71e4&_nc_eui2=AeFGoiU_JKeh5PtYIjwyWcoUvE-NxIohHPu8T43EiiEc-4njnpDE6WAM8FhJlUjHV5XDq4UyLW6IDkKXWNqPw92-&_nc_ohc=0XAH7aBMp4MQ7kNvwEDBNYo&_nc_oc=Adnjry5sdoiIpIYRmqUK2THZRxL09D3utEQxK4EZc3IUGgE1jEz2XRxou0dBNw0LsQ4&_nc_zt=23&_nc_ht=scontent.fpnh5-4.fna&_nc_gid=u43bEKWy9_OlI1eWqUcb-w&oh=00_AfYjP57Bhjc6xWfeEixXlKdICMyjP9ttD9Wpyo9lu7pRMQ&oe=68E1812B',
   },
 ];
 
@@ -30,13 +31,16 @@ const trainings: Education[] = [
 ];
 
 const EducationCard: React.FC<{ edu: Education }> = ({ edu }) => (
-  <div className="p-6 bg-white/5 rounded-lg border border-white/10 shadow-lg backdrop-blur-sm hover:border-white/20 transition-all">
-    <div className="flex justify-between items-start">
+  <div className="p-6 bg-white/5 rounded-lg border border-white/10 shadow-lg backdrop-blur-sm hover:border-white/20 transition-all flex items-center gap-6">
+    {edu.imageUrl && (
+      <img src={edu.imageUrl} alt={edu.institution} className="w-20 h-20 rounded-lg object-cover flex-shrink-0" />
+    )}
+    <div className="flex-grow flex justify-between items-start w-full">
       <div>
         <h3 className="text-xl font-bold text-gray-100">{edu.degree}</h3>
         <p className="text-md text-purple-400">{edu.institution}</p>
       </div>
-      <p className="text-sm text-gray-500 whitespace-nowrap">{edu.period}</p>
+      <p className="text-sm text-gray-500 whitespace-nowrap pl-4 flex-shrink-0">{edu.period}</p>
     </div>
   </div>
 );

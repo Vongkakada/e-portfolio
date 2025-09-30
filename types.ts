@@ -9,6 +9,7 @@ export interface Education {
   degree: string;
   institution: string;
   period: string;
+  imageUrl?: string;
 }
 
 export interface Skill {
