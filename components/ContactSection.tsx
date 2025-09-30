@@ -36,7 +36,7 @@ const ContactSection: React.FC = () => {
         <p className="text-gray-600">Or reach me directly at:</p>
         <a href="mailto:vong.kakada@example.com" className="text-lg font-semibold text-indigo-600 hover:underline">vong.kakada@example.com</a>
       </div>
-    </section>
+    </Section>
   );
 };
 
