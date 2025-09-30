@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { GithubIcon, LinkedInIcon, TwitterIcon } from './IconComponents';
 
@@ -14,7 +15,7 @@ const HeroSection: React.FC = () => {
         <div className="flex flex-col md:flex-row items-center justify-center gap-12">
           <div className="md:w-1/3 text-center">
             <img 
-              src="https://images.pexels.com/photos/2379005/pexels-photo-2379005.jpeg?auto=compress&cs=tinysrgb&w=600" 
+              src="https://scontent.fpnh5-2.fna.fbcdn.net/v/t39.30808-6/530197637_771827441881705_7485994719103450681_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=6ee11a&_nc_eui2=AeGqGqQ0F1AUaZeUDPmjzNJMRWIWKJiuYQJFYhYomK5hAouBkQf0ZHBn4w_JmVoh4YUQNf9ZkrW9RU843N2Ek-vq&_nc_ohc=0C0Gnkm8_5cQ7kNvwELvSmX&_nc_oc=AdmfYsJg7jYzcbQZo5DOcCPcugohfCoX3CiJCrEg3_QUutGyuRZLr81NN9K4lBnw55g&_nc_zt=23&_nc_ht=scontent.fpnh5-2.fna&_nc_gid=qwoHdAZv6EQW3BY0jRMTew&oh=00_AfZ7ttDH5UMo5-8OACpLMpSfs7ib8-ZjZ_MqYtG022wt-g&oe=68E17DF9" 
               alt="VONG KAKADA" 
               className="rounded-full w-48 h-48 md:w-64 md:h-64 object-cover mx-auto shadow-2xl border-4 border-white"
             />
