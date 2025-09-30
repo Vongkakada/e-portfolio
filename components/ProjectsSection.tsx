@@ -9,7 +9,7 @@ const projects: Project[] = [
     title: 'Academic Report Website',
     description: 'A digital platform for viewing and managing academic reports, designed for accessibility and ease of use.',
     detailedDescription: 'A responsive web application designed to present academic reports in a clean, accessible, and digital format. Built with modern web technologies to ensure a fast and user-friendly experience for students and faculty.',
-    imageUrl: 'https://picsum.photos/seed/project5/600/400',
+    imageUrl: 'https://ik.imagekit.io/9qcuiwxwi/Screenshot%202025-09-30%20165636.png?updatedAt=1759226312410',
     liveUrl: 'https://bannalydigital.netlify.app/',
     tags: ['Netlify', 'Digital Publishing', 'UI/UX', 'Responsive Design'],
   },
