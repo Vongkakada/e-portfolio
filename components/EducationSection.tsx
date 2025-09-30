@@ -5,13 +5,13 @@ import Section from './Section';
 
 const educations: Education[] = [
   {
-    degree: 'Bachelor of Science in Information Technology',
+    degree: 'Completed a Bachelor of Science in Information Technology.',
     institution: 'Cambodian University for Specialties',
     period: '2022 - 2024',
   },
   {
     degree: 'Bachelor of Arts in Mathematics',
-    institution: 'Chea Sim Kamchaymear National University',
+    institution: 'National University of CheaSim Kamchaymear, Kampong Cham Campus',
     period: '2019 - 2022',
   },
 ];

@@ -5,8 +5,8 @@ import Section from './Section';
 
 const experiences: Experience[] = [
   {
-    role: 'Computer Teacher',
-    company: 'Chea Sim Kamchaymear National University',
+    role: 'Computer Teacher & Assistant',
+    company: 'National University of CheaSim Kamchaymear, Kampong Cham Campus',
     period: 'May 2024 - Present',
     description: [
       'Teaching computer science fundamentals and practical skills to university students.',
