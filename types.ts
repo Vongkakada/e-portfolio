@@ -15,6 +15,7 @@ export interface Education {
 export interface Skill {
   name: string;
   category: 'Pedagogy & Instruction' | 'Computer Science' | 'Software' | 'Hardware & Networking' | 'Languages';
+  icon?: React.FC<{ className?: string }>;
 }
 
 export interface Project {
