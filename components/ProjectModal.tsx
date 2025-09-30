@@ -24,40 +24,40 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) => {
 
   return (
     <div 
-      className="fixed inset-0 bg-black bg-opacity-75 flex justify-center items-center z-50 p-4 transition-opacity duration-300"
+      className="fixed inset-0 bg-black bg-opacity-80 backdrop-blur-sm flex justify-center items-center z-50 p-4 transition-opacity duration-300"
       onClick={onClose}
       role="dialog"
       aria-modal="true"
       aria-labelledby="project-modal-title"
     >
       <div 
-        className="bg-white rounded-lg shadow-2xl w-full max-w-3xl max-h-[90vh] overflow-y-auto relative"
+        className="bg-[#1a1a1a] text-gray-300 border border-white/10 rounded-lg shadow-2xl w-full max-w-3xl max-h-[90vh] overflow-y-auto relative"
         onClick={(e) => e.stopPropagation()}
       >
         <button 
           onClick={onClose}
-          className="absolute top-4 right-4 text-gray-500 hover:text-gray-800 transition-colors z-10"
+          className="absolute top-4 right-4 text-gray-500 hover:text-white transition-colors z-10"
           aria-label="Close modal"
         >
           <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"></path></svg>
         </button>
         <img src={project.imageUrl} alt={project.title} className="w-full h-64 object-cover rounded-t-lg" />
         <div className="p-6 md:p-8">
-          <h2 id="project-modal-title" className="text-2xl md:text-3xl font-bold mb-3 text-gray-900">{project.title}</h2>
+          <h2 id="project-modal-title" className="text-2xl md:text-3xl font-bold mb-3 text-gray-100">{project.title}</h2>
           <div className="flex flex-wrap gap-2 mb-4">
             {project.tags.map(tag => (
-              <span key={tag} className="bg-indigo-100 text-indigo-800 text-xs font-semibold px-2.5 py-1 rounded-full">{tag}</span>
+              <span key={tag} className="bg-purple-900/40 text-purple-300 text-xs font-semibold px-2.5 py-1 rounded-full border border-purple-800/50">{tag}</span>
             ))}
           </div>
-          <p className="text-gray-700 leading-relaxed mb-6">{project.detailedDescription}</p>
+          <p className="text-gray-400 leading-relaxed mb-6">{project.detailedDescription}</p>
           <div className="mt-6 flex items-center space-x-4">
             {project.liveUrl && (
-              <a href={project.liveUrl} target="_blank" rel="noopener noreferrer" className="inline-block bg-indigo-600 text-white font-bold py-2 px-5 rounded-lg hover:bg-indigo-700 transition-transform transform hover:scale-105 shadow-md">
+              <a href={project.liveUrl} target="_blank" rel="noopener noreferrer" className="inline-block bg-gradient-to-r from-purple-600 to-pink-600 text-white font-bold py-2 px-5 rounded-lg hover:from-purple-700 hover:to-pink-700 transition-transform transform hover:scale-105 shadow-md">
                 View Live Demo
               </a>
             )}
             {project.repoUrl && (
-              <a href={project.repoUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center text-gray-600 hover:text-gray-900 font-semibold">
+              <a href={project.repoUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center text-gray-400 hover:text-white font-semibold">
                 <GithubIcon className="w-6 h-6 mr-2" />
                 <span>View on GitHub</span>
               </a>

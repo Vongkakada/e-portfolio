@@ -11,19 +11,19 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700;800&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
-      /* Custom scrollbar for a more modern look */
+      /* Custom scrollbar for a dark theme */
       ::-webkit-scrollbar {
         width: 8px;
       }
       ::-webkit-scrollbar-track {
-        background: #f1f1f1;
+        background: #1a1a1a;
       }
       ::-webkit-scrollbar-thumb {
-        background: #888;
+        background: #4a4a4a;
         border-radius: 4px;
       }
       ::-webkit-scrollbar-thumb:hover {
-        background: #555;
+        background: #a855f7;
       }
 
       /* Typography */
@@ -34,16 +34,16 @@
         font-family: 'Poppins', sans-serif;
       }
 
-      /* Animated Gradient Background */
+      /* Animated Gradient Background for Hero */
       @keyframes gradient-animation {
         0% { background-position: 0% 50%; }
         50% { background-position: 100% 50%; }
         100% { background-position: 0% 50%; }
       }
       .animated-gradient-bg {
-        background: linear-gradient(270deg, #f5f7fa, #c3cfe2, #e2e8f0);
-        background-size: 600% 600%;
-        animation: gradient-animation 15s ease infinite;
+        background: linear-gradient(-45deg, #0F0F0F, #a855f7, #ec4899, #1a1a1a);
+        background-size: 400% 400%;
+        animation: gradient-animation 20s ease infinite;
       }
 
       /* Scroll Progress Bar */
@@ -52,7 +52,7 @@
         top: 0;
         left: 0;
         height: 4px;
-        background: #4f46e5; /* Tailwind's indigo-600 */
+        background: linear-gradient(90deg, #a855f7, #ec4899);
         width: 0%;
         z-index: 100;
         transition: width 0.1s linear;
@@ -60,11 +60,12 @@
       
       /* Fade-in Animation */
       @keyframes fade-in {
-        from { opacity: 0; transform: translateY(20px); }
+        from { opacity: 0; transform: translateY(30px); }
         to { opacity: 1; transform: translateY(0); }
       }
       .animate-fade-in {
         animation: fade-in 0.8s ease-out forwards;
+        opacity: 0; /* Start hidden */
       }
     </style>
   <script type="importmap">
@@ -77,7 +78,7 @@
 }
 </script>
 </head>
-  <body class="bg-white text-gray-800">
+  <body class="bg-[#0F0F0F] text-gray-300">
     <div id="progress-bar"></div>
     <div id="root"></div>
     <script type="module" src="./index.tsx"></script>

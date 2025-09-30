@@ -44,7 +44,7 @@ const projects: Project[] = [
 
 const ProjectCard: React.FC<{ project: Project; onClick: () => void }> = ({ project, onClick }) => (
   <div 
-    className="bg-white rounded-lg shadow-lg overflow-hidden group transition-all duration-300 transform hover:-translate-y-2 hover:shadow-2xl hover:rotate-[-1deg] cursor-pointer"
+    className="bg-white/5 border border-white/10 rounded-lg shadow-lg overflow-hidden group transition-all duration-300 transform hover:-translate-y-2 hover:shadow-2xl hover:shadow-purple-500/20 hover:rotate-[-2deg] cursor-pointer backdrop-blur-sm"
     onClick={onClick}
     onKeyDown={(e) => (e.key === 'Enter' || e.key === ' ') && onClick()}
     role="button"
@@ -55,21 +55,21 @@ const ProjectCard: React.FC<{ project: Project; onClick: () => void }> = ({ proj
         <img src={project.imageUrl} alt={project.title} className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300 ease-in-out" />
     </div>
     <div className="p-6">
-      <h3 className="text-xl font-bold mb-2 text-gray-900">{project.title}</h3>
-      <p className="text-gray-600 mb-4 text-sm">{project.description}</p>
+      <h3 className="text-xl font-bold mb-2 text-gray-100">{project.title}</h3>
+      <p className="text-gray-400 mb-4 text-sm">{project.description}</p>
       <div className="flex flex-wrap gap-2 mb-4">
         {project.tags.map(tag => (
-          <span key={tag} className="bg-gray-200 text-gray-700 text-xs font-semibold px-2.5 py-1 rounded-full">{tag}</span>
+          <span key={tag} className="bg-gray-800 text-purple-300 text-xs font-semibold px-2.5 py-1 rounded-full border border-gray-700">{tag}</span>
         ))}
       </div>
       <div className="mt-4 flex items-center space-x-4">
         {project.liveUrl && (
-          <a href={project.liveUrl} target="_blank" rel="noopener noreferrer" onClick={e => e.stopPropagation()} className="text-indigo-600 hover:text-indigo-800 font-semibold text-sm">
+          <a href={project.liveUrl} target="_blank" rel="noopener noreferrer" onClick={e => e.stopPropagation()} className="text-pink-500 hover:text-pink-400 font-semibold text-sm">
             Live Demo →
           </a>
         )}
         {project.repoUrl && (
-          <a href={project.repoUrl} target="_blank" rel="noopener noreferrer" onClick={e => e.stopPropagation()} className="text-gray-500 hover:text-gray-800">
+          <a href={project.repoUrl} target="_blank" rel="noopener noreferrer" onClick={e => e.stopPropagation()} className="text-gray-400 hover:text-white">
             <span className="sr-only">GitHub Repository</span>
             <GithubIcon className="w-5 h-5" />
           </a>

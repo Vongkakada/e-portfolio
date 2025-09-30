@@ -21,11 +21,11 @@ const EducationSection: React.FC = () => {
     <Section id="education" title="Education">
       <div className="space-y-8">
         {educations.map((edu, index) => (
-          <div key={index} className="p-6 bg-white rounded-lg border border-gray-200 shadow-sm hover:shadow-md transition-shadow">
+          <div key={index} className="p-6 bg-white/5 rounded-lg border border-white/10 shadow-lg backdrop-blur-sm hover:border-white/20 transition-all">
             <div className="flex justify-between items-start">
               <div>
-                <h3 className="text-xl font-bold text-gray-900">{edu.degree}</h3>
-                <p className="text-md text-indigo-600">{edu.institution}</p>
+                <h3 className="text-xl font-bold text-gray-100">{edu.degree}</h3>
+                <p className="text-md text-purple-400">{edu.institution}</p>
               </div>
               <p className="text-sm text-gray-500 whitespace-nowrap">{edu.period}</p>
             </div>

@@ -28,14 +28,14 @@ const experiences: Experience[] = [
 
 const ExperienceCard: React.FC<{ experience: Experience; isLast: boolean }> = ({ experience, isLast }) => (
   <div className="relative pl-8 sm:pl-12 py-6">
-    <div className="absolute left-0 top-0 h-full w-0.5 bg-gray-200"></div>
-    <div className="absolute left-[-9px] sm:left-[-7px] top-8 w-4 h-4 bg-white border-2 border-indigo-600 rounded-full"></div>
+    <div className="absolute left-0 top-0 h-full w-0.5 bg-gray-700"></div>
+    <div className="absolute left-[-9px] sm:left-[-7px] top-8 w-4 h-4 bg-gray-900 border-2 border-purple-500 rounded-full"></div>
     <div className="mb-4">
-      <h3 className="text-xl font-bold text-gray-900">{experience.role}</h3>
-      <p className="text-md font-semibold text-indigo-600">{experience.company}</p>
+      <h3 className="text-xl font-bold text-gray-100">{experience.role}</h3>
+      <p className="text-md font-semibold text-purple-400">{experience.company}</p>
       <p className="text-sm text-gray-500">{experience.period}</p>
     </div>
-    <ul className="list-disc list-inside space-y-2 text-gray-600">
+    <ul className="list-disc list-inside space-y-2 text-gray-400">
       {experience.description.map((item, index) => (
         <li key={index}>{item}</li>
       ))}
@@ -45,7 +45,7 @@ const ExperienceCard: React.FC<{ experience: Experience; isLast: boolean }> = ({
 
 const ExperienceSection: React.FC = () => {
   return (
-    <Section id="experience" title="Work Experience" className="bg-gray-50">
+    <Section id="experience" title="Work Experience" className="bg-black/20">
       <div className="relative">
         {experiences.map((exp, index) => (
           <ExperienceCard key={index} experience={exp} isLast={index === experiences.length - 1} />

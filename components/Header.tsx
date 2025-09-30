@@ -20,16 +20,16 @@ const Header: React.FC = () => {
   }, []);
 
   return (
-    <header className={`sticky top-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-white/80 shadow-md backdrop-blur-sm' : 'bg-transparent'}`}>
+    <header className={`sticky top-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-black/30 shadow-lg backdrop-blur-md' : 'bg-transparent'}`}>
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <div className="flex-shrink-0">
-            <a href="#" className="text-2xl font-bold font-poppins text-gray-900 hover:text-indigo-600 transition-colors">VONG KAKADA</a>
+            <a href="#" className="text-2xl font-bold font-poppins bg-gradient-to-r from-purple-500 to-pink-500 bg-clip-text text-transparent transition-all hover:opacity-80">VONG KAKADA</a>
           </div>
           <div className="hidden md:block">
             <div className="ml-10 flex items-baseline space-x-4">
               {navLinks.map((link) => (
-                <a key={link.href} href={link.href} className="text-gray-700 hover:bg-gray-200 hover:text-indigo-600 px-3 py-2 rounded-md text-sm font-medium transition-all">
+                <a key={link.href} href={link.href} className="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors">
                   {link.label}
                 </a>
               ))}
@@ -39,7 +39,7 @@ const Header: React.FC = () => {
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               type="button"
-              className="bg-gray-200 inline-flex items-center justify-center p-2 rounded-md text-gray-600 hover:text-gray-900 hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-indigo-500"
+              className="bg-gray-800/50 inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700/50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white"
               aria-controls="mobile-menu"
               aria-expanded="false"
             >
@@ -55,9 +55,9 @@ const Header: React.FC = () => {
       </div>
       {isMenuOpen && (
         <div className="md:hidden" id="mobile-menu">
-          <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white">
+          <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-black/30 backdrop-blur-md">
             {navLinks.map((link) => (
-              <a key={link.href} href={link.href} onClick={() => setIsMenuOpen(false)} className="text-gray-700 hover:bg-gray-200 hover:text-indigo-600 block px-3 py-2 rounded-md text-base font-medium transition-all">
+              <a key={link.href} href={link.href} onClick={() => setIsMenuOpen(false)} className="text-gray-300 hover:bg-gray-700/50 hover:text-white block px-3 py-2 rounded-md text-base font-medium transition-all">
                 {link.label}
               </a>
             ))}
