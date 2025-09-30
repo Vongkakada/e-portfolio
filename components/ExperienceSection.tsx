@@ -5,24 +5,23 @@ import Section from './Section';
 
 const experiences: Experience[] = [
   {
-    role: 'Computer Science Lecturer',
-    company: 'National University of Cheasim Kamchaymear, Kampong Cham Campus',
-    period: '2021 - Present',
+    role: 'Computer Teacher',
+    company: 'Chea Sim Kamchaymear National University',
+    period: 'May 2024 - Present',
     description: [
-      'Delivering lectures and practical workshops on core computer science subjects including programming, data structures, and web development.',
-      'Developing and updating curriculum to align with current industry standards and emerging technologies.',
-      'Mentoring students on academic projects, career development, and technical skill-building.',
-      'Utilizing modern educational technology to create an engaging and effective learning environment.',
+      'Teaching computer science fundamentals and practical skills to university students.',
+      'Designing lesson plans, assignments, and assessments to foster student learning and engagement.',
+      'Providing guidance and support to students in their academic and technical development.',
     ],
   },
   {
-    role: 'Frontend Developer',
-    company: 'Innovate Co.',
-    period: 'Jun 2018 - Dec 2020',
+    role: 'Computer Teacher',
+    company: 'Baktouk Information Technology Center',
+    period: 'Jan 2020 - Jan 2022',
     description: [
-      'Developed responsive and interactive user interfaces for web applications using React and Redux, serving over 1 million monthly active users.',
-      'Collaborated with UX/UI designers to translate wireframes and mockups into functional components, improving design-to-code fidelity.',
-      'Implemented a component library that was adopted across 3 different product teams, increasing development velocity by 20%.',
+      'Instructed students in various computer skills including MS Office, graphic design, and basic IT concepts.',
+      'Developed course materials and conducted training sessions for diverse age groups.',
+      'Assisted students in mastering software tools and preparing for technical careers.',
     ],
   },
 ];

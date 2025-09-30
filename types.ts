@@ -13,7 +13,7 @@ export interface Education {
 
 export interface Skill {
   name: string;
-  category: 'Pedagogy & Instruction' | 'Computer Science' | 'Programming' | 'Tools';
+  category: 'Pedagogy & Instruction' | 'Computer Science' | 'Software' | 'Hardware & Networking' | 'Languages';
 }
 
 export interface Project {

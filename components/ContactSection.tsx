@@ -33,9 +33,19 @@ const ContactSection: React.FC = () => {
           </div>
         </form>
       </div>
-       <div className="text-center mt-12">
-        <p className="text-gray-400">Or reach me directly at:</p>
-        <a href="mailto:vongkakada0@gmail.com" className="text-lg font-semibold text-purple-400 hover:underline">vongkakada0@gmail.com</a>
+       <div className="text-center mt-12 space-y-6">
+        <div>
+          <p className="text-gray-400">Email</p>
+          <a href="mailto:vongkakada168@gmail.com" className="text-lg font-semibold text-purple-400 hover:underline">vongkakada168@gmail.com</a>
+        </div>
+        <div>
+          <p className="text-gray-400">Phone</p>
+          <a href="tel:+85566700401" className="text-lg font-semibold text-gray-300 hover:text-white">(+855) 66 700 401</a>
+        </div>
+        <div>
+          <p className="text-gray-400">Address</p>
+          <p className="text-lg font-semibold text-gray-300">No 12, St 149, Kampong Cham, Cambodia</p>
+        </div>
       </div>
     </Section>
   );
