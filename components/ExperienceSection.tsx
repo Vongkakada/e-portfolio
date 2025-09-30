@@ -5,13 +5,14 @@ import Section from './Section';
 
 const experiences: Experience[] = [
   {
-    role: 'Senior Software Engineer',
-    company: 'Tech Solutions Inc.',
-    period: 'Jan 2021 - Present',
+    role: 'Computer Science Lecturer',
+    company: 'National University of Cheasim Kamchaymear, Kampong Cham Campus',
+    period: '2021 - Present',
     description: [
-      'Managed a team of 5 developers in the creation of a new client-facing analytics dashboard, resulting in a 25% increase in user engagement.',
-      'Architected and implemented a microservices-based backend using Node.js and TypeScript, improving system scalability and reducing server response time by 40%.',
-      'Developed and maintained CI/CD pipelines using Jenkins and Docker, automating deployment processes and reducing deployment failures by 95%.',
+      'Delivering lectures and practical workshops on core computer science subjects including programming, data structures, and web development.',
+      'Developing and updating curriculum to align with current industry standards and emerging technologies.',
+      'Mentoring students on academic projects, career development, and technical skill-building.',
+      'Utilizing modern educational technology to create an engaging and effective learning environment.',
     ],
   },
   {

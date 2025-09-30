@@ -1,6 +1,6 @@
+
 import React, { useEffect } from 'react';
 import type { Project } from '../types';
-import { GithubIcon } from './IconComponents';
 
 interface ProjectModalProps {
   project: Project | null;
@@ -54,12 +54,6 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) => {
             {project.liveUrl && (
               <a href={project.liveUrl} target="_blank" rel="noopener noreferrer" className="inline-block bg-gradient-to-r from-purple-600 to-pink-600 text-white font-bold py-2 px-5 rounded-lg hover:from-purple-700 hover:to-pink-700 transition-transform transform hover:scale-105 shadow-md">
                 View Live Demo
-              </a>
-            )}
-            {project.repoUrl && (
-              <a href={project.repoUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center text-gray-400 hover:text-white font-semibold">
-                <GithubIcon className="w-6 h-6 mr-2" />
-                <span>View on GitHub</span>
               </a>
             )}
           </div>

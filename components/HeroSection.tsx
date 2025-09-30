@@ -1,16 +1,17 @@
 
 import React from 'react';
-import { GithubIcon, LinkedInIcon, TwitterIcon } from './IconComponents';
+import { FacebookIcon, TelegramIcon, TiktokIcon } from './IconComponents';
 
 const socialLinks = [
-    { name: 'GitHub', icon: GithubIcon, url: 'https://github.com' },
-    { name: 'LinkedIn', icon: LinkedInIcon, url: 'https://linkedin.com' },
-    { name: 'Twitter', icon: TwitterIcon, url: 'https://twitter.com' },
+    { name: 'Telegram', icon: TelegramIcon, url: 'https://t.me/Da2kk' },
+    { name: 'Facebook', icon: FacebookIcon, url: 'https://www.facebook.com/da2kk' },
+    { name: 'Tiktok', icon: TiktokIcon, url: 'https://www.tiktok.com/@daboysmos12' },
 ];
 
 const HeroSection: React.FC = () => {
-  const handleDownloadCV = () => {
-    console.log('Analytics Event: "Download CV" button clicked.');
+  const handleCVDownload = () => {
+    console.log('Analytics Event: Download CV button clicked');
+    // This event can be integrated with any analytics service.
   };
 
   return (
@@ -40,9 +41,9 @@ const HeroSection: React.FC = () => {
               </a>
               <a 
                 href="/vong-kakada-cv.pdf" 
-                download 
-                className="inline-block bg-transparent border-2 border-purple-500 text-purple-400 font-bold py-3 px-6 rounded-lg hover:bg-purple-500 hover:text-white transition-all transform hover:scale-105 shadow-lg"
-                onClick={handleDownloadCV}
+                download
+                onClick={handleCVDownload}
+                className="inline-block bg-transparent border-2 border-pink-500 text-pink-500 font-bold py-3 px-6 rounded-lg hover:bg-pink-500 hover:text-white transition-all transform hover:scale-105 shadow-lg hover:shadow-pink-500/50"
               >
                 Download CV
               </a>

@@ -1,10 +1,11 @@
+
 import React from 'react';
-import { GithubIcon, LinkedInIcon, TwitterIcon } from './IconComponents';
+import { FacebookIcon, TelegramIcon, TiktokIcon } from './IconComponents';
 
 const socialLinks = [
-    { name: 'GitHub', icon: GithubIcon, url: 'https://github.com' },
-    { name: 'LinkedIn', icon: LinkedInIcon, url: 'https://linkedin.com' },
-    { name: 'Twitter', icon: TwitterIcon, url: 'https://twitter.com' },
+    { name: 'Telegram', icon: TelegramIcon, url: 'https://t.me/Da2kk' },
+    { name: 'Facebook', icon: FacebookIcon, url: 'https://www.facebook.com/da2kk' },
+    { name: 'Tiktok', icon: TiktokIcon, url: 'https://www.tiktok.com/@daboysmos12' },
 ];
 
 const Footer: React.FC = () => {

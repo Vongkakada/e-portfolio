@@ -1,17 +1,24 @@
+
 import React, { useState } from 'react';
 import type { Project } from '../types';
 import Section from './Section';
-import { GithubIcon } from './IconComponents';
 import ProjectModal from './ProjectModal';
 
 const projects: Project[] = [
+  {
+    title: 'Academic Report Website',
+    description: 'A digital platform for viewing and managing academic reports, designed for accessibility and ease of use.',
+    detailedDescription: 'A responsive web application designed to present academic reports in a clean, accessible, and digital format. Built with modern web technologies to ensure a fast and user-friendly experience for students and faculty.',
+    imageUrl: 'https://picsum.photos/seed/project5/600/400',
+    liveUrl: 'https://bannalydigital.netlify.app/',
+    tags: ['Netlify', 'Digital Publishing', 'UI/UX', 'Responsive Design'],
+  },
   {
     title: 'E-commerce Platform',
     description: 'A full-featured e-commerce site with product search, filtering, a shopping cart, and a secure checkout process.',
     detailedDescription: 'This project is a comprehensive e-commerce solution built from the ground up. It features a modern, responsive user interface created with React. The backend, powered by Node.js and Express, handles product management, user authentication, and order processing. PostgreSQL is used for robust data storage, and the Stripe API is integrated for secure and reliable payment processing.',
     imageUrl: 'https://picsum.photos/seed/project1/600/400',
     liveUrl: '#',
-    repoUrl: '#',
     tags: ['React', 'Node.js', 'PostgreSQL', 'Stripe API', 'Tailwind CSS'],
   },
   {
@@ -20,7 +27,6 @@ const projects: Project[] = [
     detailedDescription: 'This application provides a real-time chat experience similar to popular messaging apps. It leverages Socket.IO for bidirectional, event-based communication between the client and server. The backend is built with Express and Node.js, and MongoDB is used for storing user information and chat histories. It supports user authentication, private messaging, and public chat rooms.',
     imageUrl: 'https://picsum.photos/seed/project2/600/400',
     liveUrl: '#',
-    repoUrl: '#',
     tags: ['React', 'Socket.IO', 'Express', 'MongoDB', 'JWT'],
   },
   {
@@ -28,7 +34,6 @@ const projects: Project[] = [
     description: 'An interactive dashboard for visualizing complex datasets, built with D3.js and React. Features dynamic charts and data filtering.',
     detailedDescription: 'This project focuses on creating a powerful and intuitive data visualization tool. Using the D3.js library, it renders various types of interactive charts and graphs, such as bar charts, line graphs, and pie charts. The React frontend allows for a component-based architecture and efficient state management, enabling users to filter, sort, and explore large datasets dynamically.',
     imageUrl: 'https://picsum.photos/seed/project3/600/400',
-    repoUrl: '#',
     tags: ['React', 'D3.js', 'TypeScript', 'Tailwind CSS', 'Data Viz'],
   },
   {
@@ -37,7 +42,6 @@ const projects: Project[] = [
     detailedDescription: 'This headless CMS provides a flexible and powerful way to manage content. The backend uses GraphQL to provide a strongly-typed API for querying data. The frontend is built with Next.js for server-side rendering and static site generation, ensuring optimal performance and SEO. Docker is used for containerizing the application, simplifying deployment and ensuring consistency across different environments.',
     imageUrl: 'https://picsum.photos/seed/project4/600/400',
     liveUrl: '#',
-    repoUrl: '#',
     tags: ['Next.js', 'GraphQL', 'TypeScript', 'Docker', 'PostgreSQL'],
   },
 ];
@@ -66,12 +70,6 @@ const ProjectCard: React.FC<{ project: Project; onClick: () => void }> = ({ proj
         {project.liveUrl && (
           <a href={project.liveUrl} target="_blank" rel="noopener noreferrer" onClick={e => e.stopPropagation()} className="text-pink-500 hover:text-pink-400 font-semibold text-sm">
             Live Demo →
-          </a>
-        )}
-        {project.repoUrl && (
-          <a href={project.repoUrl} target="_blank" rel="noopener noreferrer" onClick={e => e.stopPropagation()} className="text-gray-400 hover:text-white">
-            <span className="sr-only">GitHub Repository</span>
-            <GithubIcon className="w-5 h-5" />
           </a>
         )}
       </div>
