@@ -9,6 +9,12 @@ const socialLinks = [
 ];
 
 const HeroSection: React.FC = () => {
+  const handleDownloadCV = () => {
+    // In a real application, you would use an analytics service like Google Analytics.
+    // This is a basic demonstration of tracking an event.
+    console.log('Analytics Event: "Download CV" button clicked.');
+  };
+
   return (
     <section id="about" className="relative bg-gray-50 pt-24 pb-20 md:pt-32 md:pb-28">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -34,7 +40,12 @@ const HeroSection: React.FC = () => {
               <a href="#contact" className="inline-block bg-indigo-600 text-white font-bold py-3 px-6 rounded-lg hover:bg-indigo-700 transition-transform transform hover:scale-105 shadow-lg">
                 Get In Touch
               </a>
-              <a href="/vong-kakada-cv.pdf" download className="inline-block bg-white text-indigo-600 font-bold py-3 px-6 rounded-lg hover:bg-gray-100 transition-transform transform hover:scale-105 shadow-lg border border-gray-200">
+              <a 
+                href="/vong-kakada-cv.pdf" 
+                download 
+                className="inline-block bg-white text-indigo-600 font-bold py-3 px-6 rounded-lg hover:bg-gray-100 transition-transform transform hover:scale-105 shadow-lg border border-gray-200"
+                onClick={handleDownloadCV}
+              >
                 Download CV
               </a>
             </div>
