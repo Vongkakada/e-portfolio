@@ -16,7 +16,7 @@ const HeroSection: React.FC = () => {
   };
 
   return (
-    <section id="about" className="relative bg-gray-50 pt-24 pb-20 md:pt-32 md:pb-28">
+    <section id="about" className="relative animated-gradient-bg pt-24 pb-20 md:pt-32 md:pb-28">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col md:flex-row items-center justify-center gap-12">
           <div className="md:w-1/3 text-center">
@@ -27,23 +27,23 @@ const HeroSection: React.FC = () => {
             />
           </div>
           <div className="md:w-2/3 text-center md:text-left">
-            <h1 className="text-4xl md:text-6xl font-extrabold text-gray-900 tracking-tight">
+            <h1 className="text-4xl md:text-6xl font-extrabold text-gray-800 tracking-tight">
               Hi, I'm VONG KAKADA
             </h1>
-            <p className="mt-4 text-lg md:text-xl text-indigo-600 font-semibold">
+            <p className="mt-4 text-lg md:text-xl text-indigo-700 font-bold">
               Computer Science Educator & Technologist
             </p>
-            <p className="mt-6 max-w-2xl text-base text-gray-600 leading-relaxed">
+            <p className="mt-6 max-w-2xl text-base text-gray-700 leading-relaxed">
              I specialize in making complex computer science concepts accessible and engaging for learners of all levels. With a passion for both education and technology, I aim to inspire the next generation of innovators.
             </p>
             <div className="mt-8 flex justify-center md:justify-start items-center gap-4">
-              <a href="#contact" className="inline-block bg-indigo-600 text-white font-bold py-3 px-6 rounded-lg hover:bg-indigo-700 transition-transform transform hover:scale-105 shadow-lg">
+              <a href="#contact" className="inline-block bg-indigo-600 text-white font-bold py-3 px-6 rounded-lg hover:bg-indigo-700 transition-all transform hover:scale-105 shadow-lg hover:shadow-indigo-500/50">
                 Get In Touch
               </a>
               <a 
                 href="/vong-kakada-cv.pdf" 
                 download 
-                className="inline-block bg-white text-indigo-600 font-bold py-3 px-6 rounded-lg hover:bg-gray-100 transition-transform transform hover:scale-105 shadow-lg border border-gray-200"
+                className="inline-block bg-white text-indigo-600 font-bold py-3 px-6 rounded-lg hover:bg-gray-100 transition-all transform hover:scale-105 shadow-lg hover:shadow-indigo-500/50 border border-gray-200"
                 onClick={handleDownloadCV}
               >
                 Download CV

@@ -7,6 +7,9 @@
     <title>VONG KAKADA - Professional Portfolio</title>
     <meta name="description" content="Welcome to the professional portfolio of VONG KAKADA, a passionate Computer Science Educator & Technologist showcasing projects, skills, and experience.">
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700;800&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
       /* Custom scrollbar for a more modern look */
       ::-webkit-scrollbar {
@@ -22,6 +25,47 @@
       ::-webkit-scrollbar-thumb:hover {
         background: #555;
       }
+
+      /* Typography */
+      body {
+        font-family: 'Inter', sans-serif;
+      }
+      h1, h2, h3, h4, h5, h6, .font-poppins {
+        font-family: 'Poppins', sans-serif;
+      }
+
+      /* Animated Gradient Background */
+      @keyframes gradient-animation {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+      }
+      .animated-gradient-bg {
+        background: linear-gradient(270deg, #f5f7fa, #c3cfe2, #e2e8f0);
+        background-size: 600% 600%;
+        animation: gradient-animation 15s ease infinite;
+      }
+
+      /* Scroll Progress Bar */
+      #progress-bar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 4px;
+        background: #4f46e5; /* Tailwind's indigo-600 */
+        width: 0%;
+        z-index: 100;
+        transition: width 0.1s linear;
+      }
+      
+      /* Fade-in Animation */
+      @keyframes fade-in {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+      .animate-fade-in {
+        animation: fade-in 0.8s ease-out forwards;
+      }
     </style>
   <script type="importmap">
 {
@@ -33,7 +77,8 @@
 }
 </script>
 </head>
-  <body class="bg-gray-50 text-gray-800">
+  <body class="bg-white text-gray-800">
+    <div id="progress-bar"></div>
     <div id="root"></div>
     <script type="module" src="./index.tsx"></script>
   </body>

@@ -44,14 +44,16 @@ const projects: Project[] = [
 
 const ProjectCard: React.FC<{ project: Project; onClick: () => void }> = ({ project, onClick }) => (
   <div 
-    className="bg-white rounded-lg shadow-lg overflow-hidden group transition-transform transform hover:-translate-y-2 cursor-pointer"
+    className="bg-white rounded-lg shadow-lg overflow-hidden group transition-all duration-300 transform hover:-translate-y-2 hover:shadow-2xl hover:rotate-[-1deg] cursor-pointer"
     onClick={onClick}
     onKeyDown={(e) => (e.key === 'Enter' || e.key === ' ') && onClick()}
     role="button"
     tabIndex={0}
     aria-label={`View details for ${project.title}`}
   >
-    <img src={project.imageUrl} alt={project.title} className="w-full h-48 object-cover" />
+    <div className="overflow-hidden">
+        <img src={project.imageUrl} alt={project.title} className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300 ease-in-out" />
+    </div>
     <div className="p-6">
       <h3 className="text-xl font-bold mb-2 text-gray-900">{project.title}</h3>
       <p className="text-gray-600 mb-4 text-sm">{project.description}</p>
