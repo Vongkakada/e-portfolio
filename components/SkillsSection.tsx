@@ -1,3 +1,4 @@
+
 import React from 'react';
 import type { Skill } from '../types';
 import Section from './Section';
@@ -21,29 +22,69 @@ const skills: Skill[] = [
   { name: 'Chinese', category: 'Languages', icon: LanguagesIcon },
 ];
 
-const categories: Skill['category'][] = ['Pedagogy & Instruction', 'Computer Science', 'Software', 'Hardware & Networking', 'Languages'];
+// Helper component for a category-specific marquee
+const CategoryScroller: React.FC<{ title: string; skills: Skill[] }> = ({ title, skills }) => {
+  if (skills.length === 0) {
+    return null;
+  }
+
+  // Determine icon from the first skill in the category
+  const IconComponent = skills[0]?.icon;
+  
+  // Duplicate skills for a seamless, looping animation
+  const extendedSkills = [...skills, ...skills];
+
+  // Dynamically adjust animation duration based on the number of skills
+  // A longer list gets a longer duration to keep the speed consistent.
+  const animationDuration = skills.length * 8; 
+
+  return (
+    <div>
+      <div className="flex items-center justify-center mb-6 gap-3">
+        {IconComponent && <IconComponent className="w-7 h-7 text-purple-400" />}
+        <h3 className="text-xl md:text-2xl font-bold text-gray-200">{title}</h3>
+      </div>
+      <div className="scroller w-full overflow-hidden group">
+        <div 
+          className="scroller-inner group-hover:[animation-play-state:paused]"
+          style={{ animation: `scroll ${animationDuration}s linear infinite` }}
+        >
+          {extendedSkills.map((skill, index) => (
+            <div
+              key={`${skill.name}-${index}`}
+              className="flex-shrink-0 bg-purple-900/40 text-purple-300 text-sm font-medium px-4 py-2 rounded-full border border-purple-800/50 flex items-center mx-3 whitespace-nowrap"
+            >
+              <span>{skill.name}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+};
+
 
 const SkillsSection: React.FC = () => {
+  // Define the order of categories to ensure consistent layout
+  const categoryOrder: Skill['category'][] = [
+    'Pedagogy & Instruction',
+    'Computer Science',
+    'Software',
+    'Hardware & Networking',
+    'Languages',
+  ];
+
+  // Group skills by the defined category order
+  const groupedSkills = categoryOrder.map(category => ({
+    category,
+    skills: skills.filter(skill => skill.category === category),
+  }));
+
   return (
-    <Section id="skills" title="Technical Skills" className="bg-black/20">
-      <div className="space-y-8">
-        {categories.map((category) => (
-          <div key={category}>
-            <h3 className="text-lg font-semibold text-gray-200 mb-4">{category}</h3>
-            <div className="flex flex-wrap gap-3">
-              {skills
-                .filter((skill) => skill.category === category)
-                .map((skill) => (
-                  <span
-                    key={skill.name}
-                    className="bg-purple-900/40 text-purple-300 text-sm font-medium px-4 py-2 rounded-full border border-purple-800/50 flex items-center gap-2"
-                  >
-                    {skill.icon && <skill.icon className="w-4 h-4" />}
-                    {skill.name}
-                  </span>
-                ))}
-            </div>
-          </div>
+    <Section id="skills" title="Technical Skills" className="bg-black/20 py-16 md:py-24">
+      <div className="space-y-12">
+        {groupedSkills.map(({ category, skills }) => (
+          <CategoryScroller key={category} title={category} skills={skills} />
         ))}
       </div>
     </Section>

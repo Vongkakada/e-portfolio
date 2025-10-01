@@ -1,11 +1,11 @@
 
 import React from 'react';
-import { FacebookIcon, TelegramIcon, TiktokIcon } from './IconComponents';
+import { FacebookIcon, GitHubIcon, LinkedInIcon } from './IconComponents';
 
 const socialLinks = [
-    { name: 'Telegram', icon: TelegramIcon, url: 'https://t.me/Da2kk' },
+    { name: 'GitHub', icon: GitHubIcon, url: 'https://github.com/vongkakada' },
+    { name: 'LinkedIn', icon: LinkedInIcon, url: '#' },
     { name: 'Facebook', icon: FacebookIcon, url: 'https://www.facebook.com/da2kk' },
-    { name: 'Tiktok', icon: TiktokIcon, url: 'https://www.tiktok.com/@daboysmos12' },
 ];
 
 const HeroSection: React.FC = () => {
@@ -26,7 +26,7 @@ const HeroSection: React.FC = () => {
             />
           </div>
           <div className="md:w-2/3 text-center md:text-left">
-            <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight bg-gradient-to-r from-purple-400 via-pink-500 to-purple-400 bg-clip-text text-transparent">
+            <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight bg-gradient-to-r from-cyan-400 via-blue-500 to-cyan-400 bg-clip-text text-transparent">
               Hi, I'm VONG KAKADA
             </h1>
             <p className="mt-4 text-lg md:text-xl text-purple-400 font-bold">
@@ -50,7 +50,7 @@ const HeroSection: React.FC = () => {
             </div>
             <div className="mt-8 flex justify-center md:justify-start space-x-6">
               {socialLinks.map(link => (
-                <a key={link.name} href={link.url} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-pink-500 transition-transform transform hover:scale-110">
+                <a key={link.name} href={link.url} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-blue-500 transition-transform transform hover:scale-110">
                   <span className="sr-only">{link.name}</span>
                   <link.icon className="w-6 h-6" />
                 </a>

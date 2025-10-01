@@ -3,6 +3,7 @@ export interface Experience {
   company: string;
   period: string;
   description: string[];
+  imageUrl?: string;
 }
 
 export interface Education {
