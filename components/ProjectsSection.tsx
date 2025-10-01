@@ -5,13 +5,6 @@ import ProjectModal from './ProjectModal';
 
 const projects: Project[] = [
   {
-    title: 'AI-Powered Learning Platform (2025 Roadmap)',
-    description: 'A forward-looking project concept for an adaptive learning system using AI to personalize educational content for students.',
-    detailedDescription: "This project, slated for development in 2025, aims to create an AI-driven educational platform. It will analyze student performance in real-time to provide customized learning paths, interactive exercises, and intelligent feedback. The goal is to make learning more efficient, engaging, and accessible by leveraging machine learning models to adapt to individual learning styles and paces.",
-    imageUrls: ['https://picsum.photos/seed/ai-project/600/400', 'https://picsum.photos/seed/ai-learning/600/400'],
-    tags: ['AI/ML', 'EdTech', 'React', 'Python', 'Next.js', '2025'],
-  },
-  {
     title: 'Academic Report Website',
     description: 'A digital platform for viewing and managing academic reports, designed for accessibility and ease of use.',
     detailedDescription: 'A responsive web application designed to present academic reports in a clean, accessible, and digital format. Built with modern web technologies to ensure a fast and user-friendly experience for students and faculty.',
@@ -26,7 +19,7 @@ const projects: Project[] = [
     title: 'E-commerce Platform',
     description: 'A full-featured e-commerce site with product search, filtering, a shopping cart, and a secure checkout process.',
     detailedDescription: 'This project is a comprehensive e-commerce solution built from the ground up. It features a modern, responsive user interface created with React. The backend, powered by Node.js and Express, handles product management, user authentication, and order processing. PostgreSQL is used for robust data storage, and the Stripe API is integrated for secure and reliable payment processing.',
-    imageUrls: ['https://picsum.photos/seed/project1/600/400', 'https://picsum.photos/seed/ecommerce-2/600/400'],
+    imageUrls: ['https://scontent.fpnh5-2.fna.fbcdn.net/v/t39.30808-6/514410181_738186011912515_120641310178643075_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeH2QX-lYQ_DRTczldcoS4U33DE331rNwxfcMTffWs3DF3xpTeO3RKMJoUIM-2FLCFtiK6GiiUlu5zkhTaGDpouk&_nc_ohc=HqBhQB8WhHgQ7kNvwEjibYa&_nc_oc=Adl8FZwEIyoVquISFV2NaIrE98o8MC3_kKujwP7Q4ORnIdfDV_gMg994kNtYt654EH8&_nc_zt=23&_nc_ht=scontent.fpnh5-2.fna&_nc_gid=BeRCWx7XJqvzgvabnOJldg&oh=00_AfbWrU1F6l6DaN6jzxuHfIbXCilwOo5oxRSF6jSLXf6GAw&oe=68E2A304', 'https://picsum.photos/seed/ecommerce-2/600/400'],
     liveUrl: '#',
     tags: ['React', 'Node.js', 'PostgreSQL', 'Stripe API', 'Tailwind CSS'],
   },

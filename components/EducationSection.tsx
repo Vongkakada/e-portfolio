@@ -49,6 +49,11 @@ const trainings: Education[] = [
         degree: 'Computer and Graphic Design',
         institution: 'Baktouk Information Technology Center',
         period: 'Jun 2020 - Oct 2022',
+        description: `ជាគ្រូបង្រៀនលើកម្រិតសិក្សាដូចជា៖\n
+✅ វគ្គកុំព្យូទ័រកម្រិតដំបូង សំរាប់អ្នកទើបតែចាប់ផ្តើមប្រើប្រាស់កុំព្យូទ័រ (Typing English & Khmer, Ms.​Word , Excel, PowerPoint, Internet Email & Telegram)\n
+✅ វគ្គ Advance Excel (Excelកម្រិតខ្ពស់)\n
+✅ ជំនាញរចនារូបភាព និងក្រាហ្វិចឌីស្យាញ (Adobe photoshop , Adobe Illustrator, CorelDraw)\n
+✅ ជំនាញកាត់តវីដេអូ (Adobe Premiere Pro)`,
         imageUrls: [
           'https://ik.imagekit.io/9qcuiwxwi/image%20for%20portfolio/photo_8_2025-10-01_13-55-58.jpg?updatedAt=1759301843408',
           'https://ik.imagekit.io/9qcuiwxwi/image%20for%20portfolio/photo_9_2025-10-01_13-55-58.jpg?updatedAt=1759301843224',
