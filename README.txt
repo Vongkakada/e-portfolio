@@ -64,47 +64,37 @@ This guide explains how to update the text and images on your portfolio website.
 
 ### Setting up the Contact Form (EmailJS & reCAPTCHA)
 
-The contact form uses EmailJS to send emails and Google reCAPTCHA v2 (invisible) to prevent spam. To make it work, you must provide your own API keys using environment variables.
+The contact form uses EmailJS to send emails and Google reCAPTCHA v2 (invisible) to prevent spam. To make it work, you must provide your own API keys.
 
-**Step 1: Create the `.env` file**
+**Step 1: Get Your API Keys**
+You will need four keys:
+- EmailJS Service ID
+- EmailJS Template ID
+- EmailJS Public Key
+- Google reCAPTCHA v2 (Invisible) Site Key
 
-1.  In the main directory of your project (the same place you see `index.html`), create a new file named `.env`.
-2.  Copy the entire content from the `.env.example` file and paste it into your new `.env` file.
+If you don't have these, follow the setup guides on the [EmailJS](https://www.emailjs.com) and [Google reCAPTCHA](https://www.google.com/recaptcha/admin/create) websites.
 
-**Step 2: Get EmailJS Keys**
+**Step 2: Add Keys to the Code**
 
-1.  Go to [emailjs.com](https://www.emailjs.com) and create a free account.
-2.  **Add Email Service:** Go to "Email Services" -> "Add New Service". Choose your email provider (e.g., Gmail) and connect your account. Copy the **Service ID**.
-3.  **Create Email Template:** Go to "Email Templates" -> "Create New Template". Design your template and save it. Copy the **Template ID**.
-4.  **Find Public Key:** Go to "Account" -> "API Keys". Copy your **Public Key**.
+1.  Open the file: `components/ContactSection.tsx`.
+2.  At the top of the `ContactSection` component, you will see four constants.
+3.  Replace the placeholder strings with your actual keys.
 
-**Step 3: Get Google reCAPTCHA Keys**
-
-1.  Go to the [Google reCAPTCHA Admin Console](https://www.google.com/recaptcha/admin/create).
-2.  Fill out the form:
-    *   **Label:** A name for your site (e.g., "My Portfolio").
-    *   **reCAPTCHA type:** Select **"reCAPTCHA v2"** and then **"Invisible reCAPTCHA badge"**.
-    *   **Domains:** Add your website's domain (e.g., `your-site.netlify.app`). For local testing, add `localhost`.
-3.  Accept the terms and submit.
-4.  Copy the **Site Key**. You will also get a Secret Key, which you'll need for the next step.
-
-**Step 4: Connect reCAPTCHA to EmailJS**
-
-1.  In your EmailJS dashboard, go to "Email Services".
-2.  Click on your email service.
-3.  Scroll down to the "reCAPTCHA v2" section.
-4.  Paste the **Secret Key** from Google reCAPTCHA here and save.
-
-**Step 5: Update your `.env` file**
-
-1.  Open the `.env` file you created.
-2.  Replace the placeholder values with the actual keys you copied:
-
-    ```
-    PUBLIC_EMAILJS_SERVICE_ID="PASTE_YOUR_SERVICE_ID_HERE"
-    PUBLIC_EMAILJS_TEMPLATE_ID="PASTE_YOUR_TEMPLATE_ID_HERE"
-    PUBLIC_EMAILJS_PUBLIC_KEY="PASTE_YOUR_PUBLIC_KEY_HERE"
-    PUBLIC_RECAPTCHA_SITE_KEY="PASTE_YOUR_RECAPTCHA_SITE_KEY_HERE"
+    ```javascript
+    // BEFORE
+    const EMAILJS_SERVICE_ID = 'YOUR_SERVICE_ID';
+    const EMAILJS_TEMPLATE_ID = 'YOUR_TEMPLATE_ID';
+    const EMAILJS_PUBLIC_KEY = 'YOUR_PUBLIC_KEY';
+    const RECAPTCHA_SITE_KEY = 'YOUR_RECAPTCHA_SITE_KEY';
+    
+    // AFTER
+    const EMAILJS_SERVICE_ID = 'service_p1u1qmh';
+    const EMAILJS_TEMPLATE_ID = 'template_5jfnn2g';
+    const EMAILJS_PUBLIC_KEY = '2UNX9T9vvZS1VnK9_';
+    const RECAPTCHA_SITE_KEY = '6Ld0storAAAAAEruFiGb2M2Oaa61N5bPer5oAumN';
     ```
 
-**Important:** After updating your `.env` file, you must **restart your development server** for the changes to take effect. Your contact form should now be fully functional and secure!
+**Step 3: Save and Deploy**
+
+Save the file and deploy your changes. Your contact form is now fully configured and ready to use!
