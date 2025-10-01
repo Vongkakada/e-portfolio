@@ -1,13 +1,12 @@
 import React, { useState, useRef } from 'react';
 import Section from './Section';
 
-// TypeScript declaration for window.emailjs and grecaptcha
+// TypeScript declaration for window.emailjs
 declare global {
   interface Window {
     emailjs: {
       sendForm: (serviceID: string, templateID: string, form: HTMLFormElement, publicKey: string) => Promise<any>;
     };
-    grecaptcha: any;
   }
 }
 
@@ -17,64 +16,35 @@ const ContactSection: React.FC = () => {
   const [email, setEmail] = useState('');
   const [message, setMessage] = useState('');
   const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle');
-  const [errorMessage, setErrorMessage] = useState('');
 
-  // --- Configuration for EmailJS and reCAPTCHA ---
-  // Replace these placeholders with your actual keys.
-  // See README.txt for instructions.
-  const EMAILJS_SERVICE_ID = 'YOUR_SERVICE_ID';
-  const EMAILJS_TEMPLATE_ID = 'YOUR_TEMPLATE_ID';
-  const EMAILJS_PUBLIC_KEY = 'YOUR_PUBLIC_KEY';
-  const RECAPTCHA_SITE_KEY = 'YOUR_RECAPTCHA_SITE_KEY';
-
-  // Check if the keys have been configured. The form will be disabled until they are.
-  const isConfigured =
-    EMAILJS_SERVICE_ID !== 'YOUR_SERVICE_ID' &&
-    EMAILJS_TEMPLATE_ID !== 'YOUR_TEMPLATE_ID' &&
-    EMAILJS_PUBLIC_KEY !== 'YOUR_PUBLIC_KEY' &&
-    RECAPTCHA_SITE_KEY !== 'YOUR_RECAPTCHA_SITE_KEY';
+  // --- Configuration for EmailJS ---
+  const EMAILJS_SERVICE_ID = "service_p1u1qmh";
+  const EMAILJS_TEMPLATE_ID = "template_5jfnn2g";
+  const EMAILJS_PUBLIC_KEY = "2UNX9T9vvZS1VnK9_";
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    if (!form.current || !isConfigured) return;
+    if (!form.current) return;
 
     setStatus('sending');
-    setErrorMessage('');
 
-    if (window.grecaptcha) {
-      window.grecaptcha.ready(() => {
-        window.grecaptcha.execute(RECAPTCHA_SITE_KEY, { action: 'submit' })
-          .then(() => {
-            window.emailjs
-              .sendForm(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, form.current!, EMAILJS_PUBLIC_KEY)
-              .then(
-                (result) => {
-                  console.log('EmailJS Success:', result.text);
-                  setStatus('success');
-                  setFullName('');
-                  setEmail('');
-                  setMessage('');
-                  setTimeout(() => setStatus('idle'), 5000);
-                },
-                (error) => {
-                  console.error('EmailJS Error:', error.text);
-                  setStatus('error');
-                  setErrorMessage('Oops! Something went wrong. Please try again later.');
-                  setTimeout(() => setStatus('idle'), 5000);
-                }
-              );
-          })
-          .catch((error: any) => {
-            console.error('reCAPTCHA Error:', error);
-            setStatus('error');
-            setErrorMessage('reCAPTCHA validation failed. The site domain may not be registered. Please contact the administrator.');
-            setTimeout(() => setStatus('idle'), 8000);
-          });
-      });
-    } else {
-      setStatus('error');
-      setErrorMessage('reCAPTCHA not loaded. Please try again.');
-    }
+    window.emailjs
+      .sendForm(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, form.current, EMAILJS_PUBLIC_KEY)
+      .then(
+        (result) => {
+          console.log('EmailJS Success:', result.text);
+          setStatus('success');
+          setFullName('');
+          setEmail('');
+          setMessage('');
+          setTimeout(() => setStatus('idle'), 5000);
+        },
+        (error) => {
+          console.error('EmailJS Error:', error.text);
+          setStatus('error');
+          setTimeout(() => setStatus('idle'), 5000);
+        }
+      );
   };
 
   return (
@@ -86,13 +56,7 @@ const ContactSection: React.FC = () => {
       </div>
 
       <div className="max-w-xl mx-auto bg-white/5 p-8 rounded-lg shadow-lg border border-white/10 backdrop-blur-sm">
-        {!isConfigured ? (
-          <div className="text-center text-yellow-400 bg-yellow-900/30 p-4 rounded-md border border-yellow-700">
-            <h3 className="font-bold">Contact Form Not Configured</h3>
-            <p className="text-sm">The owner of this site needs to set up API keys for this form to work. Please see the instructions in README.txt.</p>
-          </div>
-        ) : (
-          <form ref={form} onSubmit={handleSubmit}>
+        <form ref={form} onSubmit={handleSubmit}>
             <div className="grid grid-cols-1 gap-y-6">
               <div>
                 <label htmlFor="full-name" className="sr-only">Full name</label>
@@ -106,6 +70,7 @@ const ContactSection: React.FC = () => {
                   value={fullName}
                   onChange={(e) => setFullName(e.target.value)}
                   required
+                  disabled={status === 'sending'}
                 />
               </div>
 
@@ -119,9 +84,9 @@ const ContactSection: React.FC = () => {
                   className="block w-full shadow-sm py-3 px-4 bg-gray-800/50 border-gray-700 rounded-md placeholder-gray-500 focus:ring-purple-500 focus:border-purple-500"
                   placeholder="Email"
                   value={email}
-                  // Fix: Corrected typo from "тарget" to "target"
                   onChange={(e) => setEmail(e.target.value)}
                   required
+                  disabled={status === 'sending'}
                 />
               </div>
 
@@ -136,6 +101,7 @@ const ContactSection: React.FC = () => {
                   value={message}
                   onChange={(e) => setMessage(e.target.value)}
                   required
+                  disabled={status === 'sending'}
                 ></textarea>
               </div>
 
@@ -150,10 +116,9 @@ const ContactSection: React.FC = () => {
               </div>
             </div>
           </form>
-        )}
         
-        {isConfigured && status === 'success' && <p className="mt-4 text-center text-green-400">Thank you! Your message has been sent successfully.</p>}
-        {isConfigured && status === 'error' && <p className="mt-4 text-center text-red-400">{errorMessage}</p>}
+        {status === 'success' && <p className="mt-4 text-center text-green-400">Thank you! Your message has been sent successfully.</p>}
+        {status === 'error' && <p className="mt-4 text-center text-red-400">Oops! Something went wrong. Please try again later.</p>}
       </div>
 
       <div className="text-center mt-12 space-y-6">

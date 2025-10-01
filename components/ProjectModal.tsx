@@ -15,10 +15,18 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) => {
       }
     };
     window.addEventListener('keydown', handleEsc);
+
+    // Prevent background scrolling when modal is open
+    if (project) {
+        document.body.style.overflow = 'hidden';
+    }
+
     return () => {
       window.removeEventListener('keydown', handleEsc);
+      // Restore scrolling when modal is closed
+      document.body.style.overflow = 'unset';
     };
-  }, [onClose]);
+  }, [project, onClose]);
 
   if (!project) return null;
 
