@@ -35,26 +35,35 @@ const ContactSection: React.FC = () => {
 
     if (window.grecaptcha) {
       window.grecaptcha.ready(() => {
-        window.grecaptcha.execute(RECAPTCHA_SITE_KEY, { action: 'submit' }).then(() => {
-          window.emailjs
-            .sendForm(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, form.current!, EMAILJS_PUBLIC_KEY)
-            .then(
-              (result) => {
-                console.log('EmailJS Success:', result.text);
-                setStatus('success');
-                setFullName('');
-                setEmail('');
-                setMessage('');
-                setTimeout(() => setStatus('idle'), 5000);
-              },
-              (error) => {
-                console.error('EmailJS Error:', error.text);
-                setStatus('error');
-                setErrorMessage('Oops! Something went wrong. Please try again later.');
-                setTimeout(() => setStatus('idle'), 5000);
-              }
-            );
-        });
+        window.grecaptcha.execute(RECAPTCHA_SITE_KEY, { action: 'submit' })
+          .then(() => {
+            // The g-recaptcha-response is now in the form, so we can send it.
+            window.emailjs
+              .sendForm(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, form.current!, EMAILJS_PUBLIC_KEY)
+              .then(
+                (result) => {
+                  console.log('EmailJS Success:', result.text);
+                  setStatus('success');
+                  setFullName('');
+                  setEmail('');
+                  setMessage('');
+                  setTimeout(() => setStatus('idle'), 5000);
+                },
+                (error) => {
+                  console.error('EmailJS Error:', error.text);
+                  setStatus('error');
+                  setErrorMessage('Oops! Something went wrong. Please try again later.');
+                  setTimeout(() => setStatus('idle'), 5000);
+                }
+              );
+          })
+          .catch((error: any) => {
+            // This catches errors from the reCAPTCHA execution itself.
+            console.error('reCAPTCHA Error:', error);
+            setStatus('error');
+            setErrorMessage('reCAPTCHA validation failed. The site domain may not be registered. Please contact the administrator.');
+            setTimeout(() => setStatus('idle'), 8000);
+          });
       });
     } else {
       setStatus('error');

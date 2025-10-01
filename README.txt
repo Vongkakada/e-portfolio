@@ -64,7 +64,7 @@ This guide explains how to update the text and images on your portfolio website.
 
 ### Setting up the Contact Form (EmailJS & reCAPTCHA)
 
-The contact form uses EmailJS to send emails and Google reCAPTCHA v2 (invisible) to prevent spam. To make it work, you must provide your own API keys.
+The contact form uses EmailJS to send emails and Google reCAPTCHA v2 (invisible) to prevent spam. To make it work, you must provide your own API keys and register your domain.
 
 **Step 1: Get Your API Keys**
 You will need four keys:
@@ -82,19 +82,24 @@ If you don't have these, follow the setup guides on the [EmailJS](https://www.em
 3.  Replace the placeholder strings with your actual keys.
 
     ```javascript
-    // BEFORE
-    const EMAILJS_SERVICE_ID = 'YOUR_SERVICE_ID';
-    const EMAILJS_TEMPLATE_ID = 'YOUR_TEMPLATE_ID';
-    const EMAILJS_PUBLIC_KEY = 'YOUR_PUBLIC_KEY';
-    const RECAPTCHA_SITE_KEY = 'YOUR_RECAPTCHA_SITE_KEY';
-    
-    // AFTER
+    // Example:
     const EMAILJS_SERVICE_ID = 'service_p1u1qmh';
     const EMAILJS_TEMPLATE_ID = 'template_5jfnn2g';
     const EMAILJS_PUBLIC_KEY = '2UNX9T9vvZS1VnK9_';
     const RECAPTCHA_SITE_KEY = '6Ld0storAAAAAEruFiGb2M2Oaa61N5bPer5oAumN';
     ```
 
-**Step 3: Save and Deploy**
+**Step 3: Register Your Website Domain (CRITICAL)**
 
-Save the file and deploy your changes. Your contact form is now fully configured and ready to use!
+Google reCAPTCHA keys are tied to specific website domains. **The contact form will fail with an error if your domain is not registered in your reCAPTCHA settings.**
+
+1.  Go to your [Google reCAPTCHA Admin Console](https://www.google.com/recaptcha/admin/).
+2.  Click on the settings icon (cog wheel) for your site key.
+3.  Find the **"Domains"** list.
+4.  Add the exact domain of your live website (e.g., `your-portfolio.netlify.app`).
+5.  **Important:** Also add `localhost` to the list if you want to test the form on your local computer.
+6.  Save your changes.
+
+**Step 4: Save and Deploy**
+
+Save your code changes and deploy your site. Your contact form is now fully configured and ready to use!
