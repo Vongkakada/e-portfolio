@@ -1,10 +1,10 @@
 
 import React from 'react';
-import { FacebookIcon, GitHubIcon, LinkedInIcon } from './IconComponents';
+import { FacebookIcon, TelegramIcon, TikTokIcon } from './IconComponents';
 
 const socialLinks = [
-    { name: 'GitHub', icon: GitHubIcon, url: 'https://github.com/vongkakada' },
-    { name: 'LinkedIn', icon: LinkedInIcon, url: '#' },
+    { name: 'Telegram', icon: TelegramIcon, url: 'https://t.me/Da2kk' },
+    { name: 'TikTok', icon: TikTokIcon, url: 'https://www.tiktok.com/@daboysmos12' },
     { name: 'Facebook', icon: FacebookIcon, url: 'https://www.facebook.com/da2kk' },
 ];
 
@@ -48,9 +48,9 @@ const HeroSection: React.FC = () => {
                 Download CV
               </a>
             </div>
-            <div className="mt-8 flex justify-center md:justify-start space-x-6">
+            <div className="mt-8 flex justify-center md:justify-start space-x-4">
               {socialLinks.map(link => (
-                <a key={link.name} href={link.url} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-pink-500 transition-transform transform hover:scale-110">
+                <a key={link.name} href={link.url} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white hover:bg-cyan-500/80 p-2 rounded-full transition-all transform hover:scale-110">
                   <span className="sr-only">{link.name}</span>
                   <link.icon className="w-6 h-6" />
                 </a>
