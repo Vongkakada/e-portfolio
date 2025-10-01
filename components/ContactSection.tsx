@@ -11,7 +11,7 @@ const ContactSection: React.FC = () => {
         </p>
       </div>
       <div className="max-w-xl mx-auto bg-white/5 p-8 rounded-lg shadow-lg border border-white/10 backdrop-blur-sm">
-        <form action="#" method="POST">
+        <form action="kakadavongkh168@gmail.com" method="POST">
           <div className="grid grid-cols-1 gap-y-6">
             <div>
               <label htmlFor="full-name" className="sr-only">Full name</label>
