@@ -83,10 +83,10 @@ If you don't have these, follow the setup guides on the [EmailJS](https://www.em
 
     ```javascript
     // Example:
-    const EMAILJS_SERVICE_ID = 'service_p1u1qmh';
-    const EMAILJS_TEMPLATE_ID = 'template_5jfnn2g';
-    const EMAILJS_PUBLIC_KEY = '2UNX9T9vvZS1VnK9_';
-    const RECAPTCHA_SITE_KEY = '6Ld0storAAAAAEruFiGb2M2Oaa61N5bPer5oAumN';
+    const EMAILJS_SERVICE_ID = 'YOUR_SERVICE_ID';
+    const EMAILJS_TEMPLATE_ID = 'YOUR_TEMPLATE_ID';
+    const EMAILJS_PUBLIC_KEY = 'YOUR_PUBLIC_KEY';
+    const RECAPTCHA_SITE_KEY = 'YOUR_RECAPTCHA_SITE_KEY';
     ```
 
 **Step 3: Register Your Website Domain (CRITICAL)**

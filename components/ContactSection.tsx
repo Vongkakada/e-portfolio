@@ -20,15 +20,23 @@ const ContactSection: React.FC = () => {
   const [errorMessage, setErrorMessage] = useState('');
 
   // --- Configuration for EmailJS and reCAPTCHA ---
-  // API keys are hardcoded as this project has no build step for .env files.
-  const EMAILJS_SERVICE_ID = 'service_p1u1qmh';
-  const EMAILJS_TEMPLATE_ID = 'template_5jfnn2g';
-  const EMAILJS_PUBLIC_KEY = '2UNX9T9vvZS1VnK9_';
-  const RECAPTCHA_SITE_KEY = '6Ld0storAAAAAK0cJis_iYOD6O29k_ScHg5PH5Pb';
+  // Replace these placeholders with your actual keys.
+  // See README.txt for instructions.
+  const EMAILJS_SERVICE_ID = 'YOUR_SERVICE_ID';
+  const EMAILJS_TEMPLATE_ID = 'YOUR_TEMPLATE_ID';
+  const EMAILJS_PUBLIC_KEY = 'YOUR_PUBLIC_KEY';
+  const RECAPTCHA_SITE_KEY = 'YOUR_RECAPTCHA_SITE_KEY';
+
+  // Check if the keys have been configured. The form will be disabled until they are.
+  const isConfigured =
+    EMAILJS_SERVICE_ID !== 'YOUR_SERVICE_ID' &&
+    EMAILJS_TEMPLATE_ID !== 'YOUR_TEMPLATE_ID' &&
+    EMAILJS_PUBLIC_KEY !== 'YOUR_PUBLIC_KEY' &&
+    RECAPTCHA_SITE_KEY !== 'YOUR_RECAPTCHA_SITE_KEY';
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    if (!form.current) return;
+    if (!form.current || !isConfigured) return;
 
     setStatus('sending');
     setErrorMessage('');
@@ -37,7 +45,6 @@ const ContactSection: React.FC = () => {
       window.grecaptcha.ready(() => {
         window.grecaptcha.execute(RECAPTCHA_SITE_KEY, { action: 'submit' })
           .then(() => {
-            // The g-recaptcha-response is now in the form, so we can send it.
             window.emailjs
               .sendForm(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, form.current!, EMAILJS_PUBLIC_KEY)
               .then(
@@ -58,7 +65,6 @@ const ContactSection: React.FC = () => {
               );
           })
           .catch((error: any) => {
-            // This catches errors from the reCAPTCHA execution itself.
             console.error('reCAPTCHA Error:', error);
             setStatus('error');
             setErrorMessage('reCAPTCHA validation failed. The site domain may not be registered. Please contact the administrator.');
@@ -80,66 +86,74 @@ const ContactSection: React.FC = () => {
       </div>
 
       <div className="max-w-xl mx-auto bg-white/5 p-8 rounded-lg shadow-lg border border-white/10 backdrop-blur-sm">
-        <form ref={form} onSubmit={handleSubmit}>
-          <div className="grid grid-cols-1 gap-y-6">
-            <div>
-              <label htmlFor="full-name" className="sr-only">Full name</label>
-              <input
-                type="text"
-                name="full-name"
-                id="full-name"
-                autoComplete="name"
-                className="block w-full shadow-sm py-3 px-4 bg-gray-800/50 border-gray-700 rounded-md placeholder-gray-500 focus:ring-purple-500 focus:border-purple-500"
-                placeholder="Full name"
-                value={fullName}
-                onChange={(e) => setFullName(e.target.value)}
-                required
-              />
-            </div>
-
-            <div>
-              <label htmlFor="email" className="sr-only">Email</label>
-              <input
-                type="email"
-                name="email"
-                id="email"
-                autoComplete="email"
-                className="block w-full shadow-sm py-3 px-4 bg-gray-800/50 border-gray-700 rounded-md placeholder-gray-500 focus:ring-purple-500 focus:border-purple-500"
-                placeholder="Email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                required
-              />
-            </div>
-
-            <div>
-              <label htmlFor="message" className="sr-only">Message</label>
-              <textarea
-                id="message"
-                name="message"
-                rows={4}
-                className="block w-full shadow-sm py-3 px-4 bg-gray-800/50 border-gray-700 rounded-md placeholder-gray-500 focus:ring-purple-500 focus:border-purple-500"
-                placeholder="Message"
-                value={message}
-                onChange={(e) => setMessage(e.target.value)}
-                required
-              ></textarea>
-            </div>
-
-            <div>
-              <button
-                type="submit"
-                disabled={status === 'sending'}
-                className="w-full inline-flex items-center justify-center px-6 py-3 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500 transition-all transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed"
-              >
-                {status === 'sending' ? 'Sending...' : 'Send Message'}
-              </button>
-            </div>
+        {!isConfigured ? (
+          <div className="text-center text-yellow-400 bg-yellow-900/30 p-4 rounded-md border border-yellow-700">
+            <h3 className="font-bold">Contact Form Not Configured</h3>
+            <p className="text-sm">The owner of this site needs to set up API keys for this form to work. Please see the instructions in README.txt.</p>
           </div>
-        </form>
+        ) : (
+          <form ref={form} onSubmit={handleSubmit}>
+            <div className="grid grid-cols-1 gap-y-6">
+              <div>
+                <label htmlFor="full-name" className="sr-only">Full name</label>
+                <input
+                  type="text"
+                  name="full-name"
+                  id="full-name"
+                  autoComplete="name"
+                  className="block w-full shadow-sm py-3 px-4 bg-gray-800/50 border-gray-700 rounded-md placeholder-gray-500 focus:ring-purple-500 focus:border-purple-500"
+                  placeholder="Full name"
+                  value={fullName}
+                  onChange={(e) => setFullName(e.target.value)}
+                  required
+                />
+              </div>
 
-        {status === 'success' && <p className="mt-4 text-center text-green-400">Thank you! Your message has been sent successfully.</p>}
-        {status === 'error' && <p className="mt-4 text-center text-red-400">{errorMessage}</p>}
+              <div>
+                <label htmlFor="email" className="sr-only">Email</label>
+                <input
+                  type="email"
+                  name="email"
+                  id="email"
+                  autoComplete="email"
+                  className="block w-full shadow-sm py-3 px-4 bg-gray-800/50 border-gray-700 rounded-md placeholder-gray-500 focus:ring-purple-500 focus:border-purple-500"
+                  placeholder="Email"
+                  value={email}
+                  // Fix: Corrected typo from "тарget" to "target"
+                  onChange={(e) => setEmail(e.target.value)}
+                  required
+                />
+              </div>
+
+              <div>
+                <label htmlFor="message" className="sr-only">Message</label>
+                <textarea
+                  id="message"
+                  name="message"
+                  rows={4}
+                  className="block w-full shadow-sm py-3 px-4 bg-gray-800/50 border-gray-700 rounded-md placeholder-gray-500 focus:ring-purple-500 focus:border-purple-500"
+                  placeholder="Message"
+                  value={message}
+                  onChange={(e) => setMessage(e.target.value)}
+                  required
+                ></textarea>
+              </div>
+
+              <div>
+                <button
+                  type="submit"
+                  disabled={status === 'sending'}
+                  className="w-full inline-flex items-center justify-center px-6 py-3 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500 transition-all transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed"
+                >
+                  {status === 'sending' ? 'Sending...' : 'Send Message'}
+                </button>
+              </div>
+            </div>
+          </form>
+        )}
+        
+        {isConfigured && status === 'success' && <p className="mt-4 text-center text-green-400">Thank you! Your message has been sent successfully.</p>}
+        {isConfigured && status === 'error' && <p className="mt-4 text-center text-red-400">{errorMessage}</p>}
       </div>
 
       <div className="text-center mt-12 space-y-6">
