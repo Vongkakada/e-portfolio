@@ -50,7 +50,7 @@ const HeroSection: React.FC = () => {
             </div>
             <div className="mt-8 flex justify-center md:justify-start space-x-6">
               {socialLinks.map(link => (
-                <a key={link.name} href={link.url} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-blue-500 transition-transform transform hover:scale-110">
+                <a key={link.name} href={link.url} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-pink-500 transition-transform transform hover:scale-110">
                   <span className="sr-only">{link.name}</span>
                   <link.icon className="w-6 h-6" />
                 </a>

@@ -18,7 +18,7 @@ const Footer: React.FC = () => {
           <p className="text-sm">&copy; {currentYear} VONG KAKADA. All rights reserved.</p>
           <div className="flex space-x-6">
             {socialLinks.map(link => (
-              <a key={link.name} href={link.url} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-blue-500 transition-colors">
+              <a key={link.name} href={link.url} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-pink-500 transition-colors">
                 <span className="sr-only">{link.name}</span>
                 <link.icon className="w-6 h-6" />
               </a>

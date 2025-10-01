@@ -22,11 +22,13 @@ const trainings: Education[] = [
         degree: 'Programming and Cybersecurity Analysis',
         institution: 'CodeForCambodia.com',
         period: 'Oct 2022 - Nov 2024',
+        imageUrl: 'https://picsum.photos/seed/training1/200/200',
     },
     {
         degree: 'Computer and Graphic Design',
         institution: 'Baktouk Information Technology Center',
         period: 'Jun 2020 - Oct 2022',
+        imageUrl: 'https://scontent.fpnh5-4.fna.fbcdn.net/v/t39.30808-6/481239190_1327710302001465_825552311202115028_n.jpg?stp=cp6_dst-jpg_tt6&_nc_cat=110&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeGXBffLARNgqdJAA1av5DtDBC93URMaR2MEL3dRExpHY9uxWVfRHCwR08RLYW7CUjfGXjP-Jp-GMphAMJW-VmNl&_nc_ohc=miq2v3zMe64Q7kNvwFO0Kfy&_nc_oc=Adm_Fzn4JN7otZJlx9RM2bsB5Ys_vKquPnnSvOwldQl83tlsQw4dX5O-EL7kwTYZpwE&_nc_zt=23&_nc_ht=scontent.fpnh5-4.fna&_nc_gid=gzelMtqYq5f5tX-6d_bf3A&oh=00_AfbL3agDb1o6SG6YakDWP-6ZYtes_m4B5qFymgnrzlTIQw&oe=68E292C4',
     }
 ];
 
