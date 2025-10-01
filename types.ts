@@ -1,16 +1,18 @@
+
 export interface Experience {
   role: string;
   company: string;
   period: string;
   description: string[];
-  imageUrl?: string;
+  imageUrls?: string[];
 }
 
 export interface Education {
   degree: string;
   institution: string;
   period: string;
-  imageUrl?: string;
+  description?: string;
+  imageUrls?: string[];
 }
 
 export interface Skill {
@@ -23,7 +25,7 @@ export interface Project {
   title: string;
   description: string;
   detailedDescription: string;
-  imageUrl: string;
+  imageUrls: string[];
   liveUrl?: string;
   repoUrl?: string;
   tags: string[];

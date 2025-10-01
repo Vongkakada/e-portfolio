@@ -1,6 +1,6 @@
-
 import React, { useEffect } from 'react';
 import type { Project } from '../types';
+import ImageSlideshow from './ImageSlideshow';
 
 interface ProjectModalProps {
   project: Project | null;
@@ -41,7 +41,7 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) => {
         >
           <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"></path></svg>
         </button>
-        <img src={project.imageUrl} alt={project.title} className="w-full h-64 object-cover rounded-t-lg" />
+        <ImageSlideshow urls={project.imageUrls} alt={project.title} className="w-full h-64 rounded-t-lg" />
         <div className="p-6 md:p-8">
           <h2 id="project-modal-title" className="text-2xl md:text-3xl font-bold mb-3 text-gray-100">{project.title}</h2>
           <div className="flex flex-wrap gap-2 mb-4">

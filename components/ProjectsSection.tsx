@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import type { Project } from '../types';
 import Section from './Section';
@@ -6,10 +5,20 @@ import ProjectModal from './ProjectModal';
 
 const projects: Project[] = [
   {
+    title: 'AI-Powered Learning Platform (2025 Roadmap)',
+    description: 'A forward-looking project concept for an adaptive learning system using AI to personalize educational content for students.',
+    detailedDescription: "This project, slated for development in 2025, aims to create an AI-driven educational platform. It will analyze student performance in real-time to provide customized learning paths, interactive exercises, and intelligent feedback. The goal is to make learning more efficient, engaging, and accessible by leveraging machine learning models to adapt to individual learning styles and paces.",
+    imageUrls: ['https://picsum.photos/seed/ai-project/600/400', 'https://picsum.photos/seed/ai-learning/600/400'],
+    tags: ['AI/ML', 'EdTech', 'React', 'Python', 'Next.js', '2025'],
+  },
+  {
     title: 'Academic Report Website',
     description: 'A digital platform for viewing and managing academic reports, designed for accessibility and ease of use.',
     detailedDescription: 'A responsive web application designed to present academic reports in a clean, accessible, and digital format. Built with modern web technologies to ensure a fast and user-friendly experience for students and faculty.',
-    imageUrl: 'https://ik.imagekit.io/9qcuiwxwi/Screenshot%202025-09-30%20165636.png?updatedAt=1759226312410',
+    imageUrls: [
+        'https://ik.imagekit.io/9qcuiwxwi/Screenshot%202025-09-30%20165636.png?updatedAt=1759226312410',
+        'https://picsum.photos/seed/report-website/600/400',
+    ],
     liveUrl: 'https://bannalydigital.netlify.app/',
     tags: ['Netlify', 'Digital Publishing', 'UI/UX', 'Responsive Design'],
   },
@@ -17,7 +26,7 @@ const projects: Project[] = [
     title: 'E-commerce Platform',
     description: 'A full-featured e-commerce site with product search, filtering, a shopping cart, and a secure checkout process.',
     detailedDescription: 'This project is a comprehensive e-commerce solution built from the ground up. It features a modern, responsive user interface created with React. The backend, powered by Node.js and Express, handles product management, user authentication, and order processing. PostgreSQL is used for robust data storage, and the Stripe API is integrated for secure and reliable payment processing.',
-    imageUrl: 'https://picsum.photos/seed/project1/600/400',
+    imageUrls: ['https://picsum.photos/seed/project1/600/400', 'https://picsum.photos/seed/ecommerce-2/600/400'],
     liveUrl: '#',
     tags: ['React', 'Node.js', 'PostgreSQL', 'Stripe API', 'Tailwind CSS'],
   },
@@ -25,7 +34,7 @@ const projects: Project[] = [
     title: 'Real-time Chat Application',
     description: 'A web-based chat application using WebSockets for instant messaging, supporting multiple rooms and user authentication.',
     detailedDescription: 'This application provides a real-time chat experience similar to popular messaging apps. It leverages Socket.IO for bidirectional, event-based communication between the client and server. The backend is built with Express and Node.js, and MongoDB is used for storing user information and chat histories. It supports user authentication, private messaging, and public chat rooms.',
-    imageUrl: 'https://picsum.photos/seed/project2/600/400',
+    imageUrls: ['https://picsum.photos/seed/project2/600/400', 'https://picsum.photos/seed/chat-app-2/600/400'],
     liveUrl: '#',
     tags: ['React', 'Socket.IO', 'Express', 'MongoDB', 'JWT'],
   },
@@ -33,14 +42,14 @@ const projects: Project[] = [
     title: 'Data Visualization Dashboard',
     description: 'An interactive dashboard for visualizing complex datasets, built with D3.js and React. Features dynamic charts and data filtering.',
     detailedDescription: 'This project focuses on creating a powerful and intuitive data visualization tool. Using the D3.js library, it renders various types of interactive charts and graphs, such as bar charts, line graphs, and pie charts. The React frontend allows for a component-based architecture and efficient state management, enabling users to filter, sort, and explore large datasets dynamically.',
-    imageUrl: 'https://picsum.photos/seed/project3/600/400',
+    imageUrls: ['https://picsum.photos/seed/project3/600/400', 'https://picsum.photos/seed/dataviz-2/600/400'],
     tags: ['React', 'D3.js', 'TypeScript', 'Tailwind CSS', 'Data Viz'],
   },
   {
     title: 'Content Management System',
     description: 'A headless CMS built with Next.js and GraphQL, allowing for easy content updates and seamless integration with any frontend.',
     detailedDescription: 'This headless CMS provides a flexible and powerful way to manage content. The backend uses GraphQL to provide a strongly-typed API for querying data. The frontend is built with Next.js for server-side rendering and static site generation, ensuring optimal performance and SEO. Docker is used for containerizing the application, simplifying deployment and ensuring consistency across different environments.',
-    imageUrl: 'https://picsum.photos/seed/project4/600/400',
+    imageUrls: ['https://picsum.photos/seed/project4/600/400', 'https://picsum.photos/seed/cms-2/600/400'],
     liveUrl: '#',
     tags: ['Next.js', 'GraphQL', 'TypeScript', 'Docker', 'PostgreSQL'],
   },
@@ -56,7 +65,7 @@ const ProjectCard: React.FC<{ project: Project; onClick: () => void }> = ({ proj
     aria-label={`View details for ${project.title}`}
   >
     <div className="overflow-hidden">
-        <img src={project.imageUrl} alt={project.title} className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300 ease-in-out" />
+        <img src={project.imageUrls[0]} alt={project.title} className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300 ease-in-out" />
     </div>
     <div className="p-6">
       <h3 className="text-xl font-bold mb-2 text-gray-100">{project.title}</h3>
