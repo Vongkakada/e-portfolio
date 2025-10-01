@@ -1,3 +1,4 @@
+
 import React from 'react';
 import type { Education } from '../types';
 import Section from './Section';
@@ -37,12 +38,12 @@ const EducationCard: React.FC<{ edu: Education }> = ({ edu }) => (
     {edu.imageUrl && (
       <img src={edu.imageUrl} alt={edu.institution} className="w-20 h-20 rounded-lg object-cover flex-shrink-0" />
     )}
-    <div className="flex-grow flex justify-between items-start w-full">
+    <div className="flex-grow flex flex-col sm:flex-row sm:justify-between sm:items-start w-full gap-1 sm:gap-4">
       <div>
         <h3 className="text-xl font-bold text-gray-100">{edu.degree}</h3>
         <p className="text-md text-purple-400">{edu.institution}</p>
       </div>
-      <p className="text-sm text-gray-500 whitespace-nowrap pl-4 flex-shrink-0">{edu.period}</p>
+      <p className="text-sm text-gray-500 sm:whitespace-nowrap flex-shrink-0">{edu.period}</p>
     </div>
   </div>
 );
