@@ -24,7 +24,7 @@ const ContactSection: React.FC = () => {
   const EMAILJS_SERVICE_ID = 'service_p1u1qmh';
   const EMAILJS_TEMPLATE_ID = 'template_5jfnn2g';
   const EMAILJS_PUBLIC_KEY = '2UNX9T9vvZS1VnK9_';
-  const RECAPTCHA_SITE_KEY = '6Ld0storAAAAAEruFiGb2M2Oaa61N5bPer5oAumN';
+  const RECAPTCHA_SITE_KEY = '6Ld0storAAAAAK0cJis_iYOD6O29k_ScHg5PH5Pb';
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
