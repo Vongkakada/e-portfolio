@@ -19,23 +19,15 @@ const ContactSection: React.FC = () => {
   const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle');
   const [errorMessage, setErrorMessage] = useState('');
 
-  // --- Environment Variables (Vite style PUBLIC_...) ---
-  const EMAILJS_SERVICE_ID = import.meta.env.PUBLIC_EMAILJS_SERVICE_ID!;
-  const EMAILJS_TEMPLATE_ID = import.meta.env.PUBLIC_EMAILJS_TEMPLATE_ID!;
-  const EMAILJS_PUBLIC_KEY = import.meta.env.PUBLIC_EMAILJS_PUBLIC_KEY!;
-  const RECAPTCHA_SITE_KEY = import.meta.env.PUBLIC_RECAPTCHA_SITE_KEY!;
-
-  const isConfigured =
-    EMAILJS_SERVICE_ID && EMAILJS_TEMPLATE_ID && EMAILJS_PUBLIC_KEY && RECAPTCHA_SITE_KEY;
+  // --- Configuration for EmailJS and reCAPTCHA ---
+  // API keys are hardcoded as this project has no build step for .env files.
+  const EMAILJS_SERVICE_ID = 'service_p1u1qmh';
+  const EMAILJS_TEMPLATE_ID = 'template_5jfnn2g';
+  const EMAILJS_PUBLIC_KEY = '2UNX9T9vvZS1VnK9_';
+  const RECAPTCHA_SITE_KEY = '6Ld0storAAAAAEruFiGb2M2Oaa61N5bPer5oAumN';
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    if (!isConfigured) {
-      setStatus('error');
-      setErrorMessage('Contact form is not configured properly. Please check .env file.');
-      return;
-    }
-
     if (!form.current) return;
 
     setStatus('sending');
