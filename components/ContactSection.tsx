@@ -1,32 +1,69 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import Section from './Section';
 
+// This lets TypeScript know that window.emailjs exists, as it's loaded from a script tag in index.html
+declare global {
+  interface Window {
+    emailjs: {
+      sendForm: (serviceID: string, templateID: string, form: HTMLFormElement, publicKey: string) => Promise<any>;
+    };
+  }
+}
+
 const ContactSection: React.FC = () => {
+  // --- IMPORTANT ---
+  // API keys are now loaded from environment variables.
+  // Create a .env file in the root of your project and add your keys there.
+  // See .env.example and README.txt for more details.
+  const EMAILJS_SERVICE_ID = process.env.PUBLIC_EMAILJS_SERVICE_ID;
+  const EMAILJS_TEMPLATE_ID = process.env.PUBLIC_EMAILJS_TEMPLATE_ID;
+  const EMAILJS_PUBLIC_KEY = process.env.PUBLIC_EMAILJS_PUBLIC_KEY;
+  const RECAPTCHA_SITE_KEY = process.env.PUBLIC_RECAPTCHA_SITE_KEY;
+
+  const form = useRef<HTMLFormElement>(null);
   const [fullName, setFullName] = useState('');
   const [email, setEmail] = useState('');
   const [message, setMessage] = useState('');
   const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle');
+  const [errorMessage, setErrorMessage] = useState('');
+
+  // Check if the form is configured with actual keys from the .env file
+  const isConfigured = 
+    EMAILJS_SERVICE_ID && 
+    EMAILJS_TEMPLATE_ID && 
+    EMAILJS_PUBLIC_KEY;
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault(); // Prevent the browser's default form submission
+    event.preventDefault();
+
+    if (!isConfigured || !EMAILJS_SERVICE_ID || !EMAILJS_TEMPLATE_ID || !EMAILJS_PUBLIC_KEY) {
+      setStatus('error');
+      setErrorMessage('Contact form is not configured. Please check your .env file and the instructions in README.txt.');
+      return;
+    }
+    
+    if (!form.current) return;
+
     setStatus('sending');
+    setErrorMessage('');
 
-    // In a real application, you would send this data to a server or a third-party service.
-    // For this portfolio, we will simulate a successful submission.
-    console.log({
-      fullName,
-      email,
-      message,
-    });
-
-    setTimeout(() => {
-      setStatus('success');
-      setFullName('');
-      setEmail('');
-      setMessage('');
-      // Reset status after a few seconds so the user can send another message
-      setTimeout(() => setStatus('idle'), 5000);
-    }, 2000);
+    window.emailjs.sendForm(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, form.current, EMAILJS_PUBLIC_KEY)
+      .then(
+        (result) => {
+          console.log('EmailJS Success:', result.text);
+          setStatus('success');
+          setFullName('');
+          setEmail('');
+          setMessage('');
+          setTimeout(() => setStatus('idle'), 5000);
+        },
+        (error) => {
+          console.error('EmailJS Error:', error.text);
+          setStatus('error');
+          setErrorMessage('Oops! Something went wrong. Please try again later.');
+          setTimeout(() => setStatus('idle'), 5000);
+        }
+      );
   };
 
   return (
@@ -37,7 +74,7 @@ const ContactSection: React.FC = () => {
         </p>
       </div>
       <div className="max-w-xl mx-auto bg-white/5 p-8 rounded-lg shadow-lg border border-white/10 backdrop-blur-sm">
-        <form onSubmit={handleSubmit}>
+        <form ref={form} onSubmit={handleSubmit}>
           <div className="grid grid-cols-1 gap-y-6">
             <div>
               <label htmlFor="full-name" className="sr-only">Full name</label>
@@ -80,6 +117,13 @@ const ContactSection: React.FC = () => {
                 required
               ></textarea>
             </div>
+            {isConfigured && RECAPTCHA_SITE_KEY && (
+              <div 
+                className="g-recaptcha"
+                data-sitekey={RECAPTCHA_SITE_KEY}
+                data-size="invisible"
+              ></div>
+            )}
             <div>
               <button 
                 type="submit" 
@@ -98,7 +142,7 @@ const ContactSection: React.FC = () => {
         )}
         {status === 'error' && (
            <p className="mt-4 text-center text-red-400">
-            Oops! Something went wrong. Please try again later.
+            {errorMessage}
           </p>
         )}
       </div>
