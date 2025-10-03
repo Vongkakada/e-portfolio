@@ -74,6 +74,12 @@ const certifications: Certificate[] = [
       imageUrl: 'https://api.accredible.com/v1/frontend/credential_website_embed_image/certificate/162377962?key=8e8f02372c40b2349845b03d5004cb89cc989b10bad714dcdb17304ae8fe190f',
       credentialUrl: 'https://api.accredible.com/v1/frontend/credential_website_embed_image/certificate/162377962?key=8e8f02372c40b2349845b03d5004cb89cc989b10bad714dcdb17304ae8fe190f',
     },
+    {
+      title: 'Gemini Certified Educator',
+      issuer: 'Google for Education',
+      imageUrl: 'https://api.accredible.com/v1/frontend/credential_website_embed_image/certificate/162466017?key=0a1db3dd7da34131327a24455ecb19ddd672b7bc5b41e84480f1d4962b326343',
+      credentialUrl: 'https://api.accredible.com/v1/frontend/credential_website_embed_image/certificate/162466017?key=0a1db3dd7da34131327a24455ecb19ddd672b7bc5b41e84480f1d4962b326343',
+    },
   ];
 
 // Card for formal education (compact layout)
