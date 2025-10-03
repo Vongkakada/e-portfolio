@@ -23,12 +23,17 @@ This guide explains how to update the text and images on your portfolio website.
 
 ---
 
-#### 3. Education & Training (`components/EducationSection.tsx`)
+#### 3. Education, Training & Certifications (`components/EducationSection.tsx`)
+
+This file contains three content sections: formal education, extra training, and certifications.
 
 -   **Formal Education:** Edit the `educations` array. Each object represents a degree.
--   **Extra Training:** Edit the `trainings` array. Each object represents a course or certification.
--   For both, you can update the `degree`/`title`, `institution`, and `period`.
--   **Images:** Use the `imageUrls` property. This is an array of strings.
+-   **Extra Training:** Edit the `trainings` array. Each object represents a course or workshop.
+-   **Certifications:** Edit the `certifications` array. Each object represents a professional certificate.
+    -   For certificates, provide `title`, `issuer`, `imageUrl` (a direct link to the certificate image), and `credentialUrl` (a link to the verification page).
+
+-   **Images for Education & Training:**
+    -   Use the `imageUrls` property. This is an array of strings.
     -   For a single static image, provide one URL: `imageUrls: ['http://...']`
     -   For an animated slideshow, provide multiple URLs: `imageUrls: ['http://...', 'http://...']`
 

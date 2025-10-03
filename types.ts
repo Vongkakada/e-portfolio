@@ -1,4 +1,3 @@
-
 export interface Experience {
   role: string;
   company: string;
@@ -29,4 +28,11 @@ export interface Project {
   liveUrl?: string;
   repoUrl?: string;
   tags: string[];
+}
+
+export interface Certificate {
+  title: string;
+  issuer: string;
+  imageUrl: string;
+  credentialUrl?: string;
 }

@@ -1,6 +1,6 @@
 
 import React from 'react';
-import type { Education } from '../types';
+import type { Education, Certificate } from '../types';
 import Section from './Section';
 import ImageSlideshow from './ImageSlideshow';
 
@@ -67,6 +67,15 @@ const trainings: Education[] = [
     },
 ];
 
+const certifications: Certificate[] = [
+    {
+      title: 'Gemini Certified University Student',
+      issuer: 'Google for Education',
+      imageUrl: 'https://api.accredible.com/v1/frontend/credential_website_embed_image/certificate/162377962?key=8e8f02372c40b2349845b03d5004cb89cc989b10bad714dcdb17304ae8fe190f',
+      credentialUrl: 'https://api.accredible.com/v1/frontend/credential_website_embed_image/certificate/162377962?key=8e8f02372c40b2349845b03d5004cb89cc989b10bad714dcdb17304ae8fe190f',
+    },
+  ];
+
 // Card for formal education (compact layout)
 const EducationCard: React.FC<{ edu: Education }> = ({ edu }) => (
   <div className="p-6 bg-white/5 rounded-lg border border-white/10 shadow-lg backdrop-blur-sm hover:border-white/20 transition-all flex flex-col sm:flex-row items-center gap-6">
@@ -109,6 +118,26 @@ const TrainingCard: React.FC<{ train: Education }> = ({ train }) => (
     </div>
   );
 
+  const CertificateCard: React.FC<{ cert: Certificate }> = ({ cert }) => (
+    <a 
+      href={cert.credentialUrl} 
+      target="_blank" 
+      rel="noopener noreferrer"
+      className="block bg-white/5 rounded-lg border border-white/10 shadow-lg backdrop-blur-sm overflow-hidden transition-all duration-300 hover:border-purple-400/50 hover:-translate-y-1 hover:shadow-2xl hover:shadow-purple-500/20"
+      aria-label={`View certificate for ${cert.title}`}
+    >
+      <img 
+        src={cert.imageUrl} 
+        alt={cert.title} 
+        className="w-full h-auto object-contain bg-black"
+      />
+      <div className="p-4">
+        <h4 className="font-bold text-lg text-gray-100">{cert.title}</h4>
+        <p className="text-sm text-purple-400">{cert.issuer}</p>
+      </div>
+    </a>
+  );
+
 const EducationSection: React.FC = () => {
   return (
     <Section id="education" title="Education & Training">
@@ -122,6 +151,14 @@ const EducationSection: React.FC = () => {
         <div className="space-y-8">
             {trainings.map((train, index) => (
               <TrainingCard key={index} train={train} />
+            ))}
+        </div>
+      </div>
+      <div className="mt-16">
+        <h3 className="text-2xl font-bold text-center mb-8 text-gray-200">Certifications</h3>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {certifications.map((cert, index) => (
+              <CertificateCard key={index} cert={cert} />
             ))}
         </div>
       </div>
