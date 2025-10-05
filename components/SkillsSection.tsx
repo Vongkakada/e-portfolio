@@ -41,8 +41,8 @@ const CategoryScroller: React.FC<{ title: string; skills: Skill[] }> = ({ title,
   return (
     <div>
       <div className="flex items-center justify-center mb-6 gap-3">
-        {IconComponent && <IconComponent className="w-7 h-7 text-purple-400" />}
-        <h3 className="text-xl md:text-2xl font-bold text-gray-200">{title}</h3>
+        {IconComponent && <IconComponent className="w-7 h-7 text-purple-600 dark:text-purple-400" />}
+        <h3 className="text-xl md:text-2xl font-bold text-gray-800 dark:text-gray-200">{title}</h3>
       </div>
       <div className="scroller w-full overflow-hidden group">
         <div 
@@ -52,7 +52,7 @@ const CategoryScroller: React.FC<{ title: string; skills: Skill[] }> = ({ title,
           {extendedSkills.map((skill, index) => (
             <div
               key={`${skill.name}-${index}`}
-              className="flex-shrink-0 bg-purple-900/40 text-purple-300 text-sm font-medium px-4 py-2 rounded-full border border-purple-800/50 flex items-center mx-3 whitespace-nowrap"
+              className="flex-shrink-0 bg-purple-100 text-purple-800 dark:bg-purple-900/40 dark:text-purple-300 text-sm font-medium px-4 py-2 rounded-full border border-purple-200 dark:border-purple-800/50 flex items-center mx-3 whitespace-nowrap"
             >
               <span>{skill.name}</span>
             </div>
@@ -81,7 +81,7 @@ const SkillsSection: React.FC = () => {
   }));
 
   return (
-    <Section id="skills" title="Technical Skills" className="bg-black/20 py-16 md:py-24">
+    <Section id="skills" title="Technical Skills" className="bg-gray-100 dark:bg-gray-900 py-16 md:py-24">
       <div className="space-y-12">
         {groupedSkills.map(({ category, skills }) => (
           <CategoryScroller key={category} title={category} skills={skills} />

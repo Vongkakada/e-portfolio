@@ -84,26 +84,26 @@ const certifications: Certificate[] = [
 
 // Card for formal education (compact layout)
 const EducationCard: React.FC<{ edu: Education }> = ({ edu }) => (
-  <div className="p-6 bg-white/5 rounded-lg border border-white/10 shadow-lg backdrop-blur-sm hover:border-white/20 transition-all flex flex-col sm:flex-row items-center gap-6">
+  <div className="p-6 bg-white dark:bg-white/5 rounded-lg border border-gray-200 dark:border-white/10 shadow-xl dark:shadow-lg backdrop-blur-sm hover:border-purple-400 dark:hover:border-white/20 transition-all flex flex-col sm:flex-row items-center gap-6">
     {edu.imageUrls && edu.imageUrls.length > 0 && (
       <ImageSlideshow urls={edu.imageUrls} alt={edu.institution} className="w-20 h-20 rounded-lg" />
     )}
     <div className="flex-grow flex flex-col sm:flex-row sm:justify-between sm:items-start w-full gap-1 sm:gap-4">
       <div>
-        <h3 className="text-xl font-bold text-gray-100">{edu.degree}</h3>
-        <p className="text-md text-purple-400">{edu.institution}</p>
+        <h3 className="text-xl font-bold text-gray-900 dark:text-gray-100">{edu.degree}</h3>
+        <p className="text-md text-purple-600 dark:text-purple-400">{edu.institution}</p>
         {edu.description && (
-          <p className="mt-2 text-sm text-gray-400">{edu.description}</p>
+          <p className="mt-2 text-sm text-gray-600 dark:text-gray-400">{edu.description}</p>
         )}
       </div>
-      <p className="text-sm text-gray-500 sm:whitespace-nowrap flex-shrink-0 mt-2 sm:mt-0">{edu.period}</p>
+      <p className="text-sm text-gray-500 dark:text-gray-400 sm:whitespace-nowrap flex-shrink-0 mt-2 sm:mt-0">{edu.period}</p>
     </div>
   </div>
 );
 
 // Card for extra training (large image-top layout)
 const TrainingCard: React.FC<{ train: Education }> = ({ train }) => (
-    <div className="bg-white/5 rounded-lg border border-white/10 shadow-lg backdrop-blur-sm overflow-hidden transition-all hover:border-white/20">
+    <div className="bg-white dark:bg-white/5 rounded-lg border border-gray-200 dark:border-white/10 shadow-xl dark:shadow-lg backdrop-blur-sm overflow-hidden transition-all hover:border-purple-400 dark:hover:border-white/20">
       {train.imageUrls && train.imageUrls.length > 0 && (
         <ImageSlideshow 
           urls={train.imageUrls} 
@@ -113,12 +113,12 @@ const TrainingCard: React.FC<{ train: Education }> = ({ train }) => (
       )}
       <div className="p-6">
         <div className="flex flex-col sm:flex-row justify-between items-start gap-2 mb-2">
-          <h3 className="text-xl font-bold text-gray-100">{train.degree}</h3>
-          <p className="text-sm text-gray-500 sm:whitespace-nowrap flex-shrink-0">{train.period}</p>
+          <h3 className="text-xl font-bold text-gray-900 dark:text-gray-100">{train.degree}</h3>
+          <p className="text-sm text-gray-500 dark:text-gray-400 sm:whitespace-nowrap flex-shrink-0">{train.period}</p>
         </div>
-        <p className="text-md text-purple-400 mb-4">{train.institution}</p>
+        <p className="text-md text-purple-600 dark:text-purple-400 mb-4">{train.institution}</p>
         {train.description && (
-          <p className="text-sm text-gray-400">{train.description}</p>
+          <p className="text-sm text-gray-600 dark:text-gray-400">{train.description}</p>
         )}
       </div>
     </div>
@@ -129,17 +129,17 @@ const TrainingCard: React.FC<{ train: Education }> = ({ train }) => (
       href={cert.credentialUrl} 
       target="_blank" 
       rel="noopener noreferrer"
-      className="block bg-white/5 rounded-lg border border-white/10 shadow-lg backdrop-blur-sm overflow-hidden transition-all duration-300 hover:border-purple-400/50 hover:-translate-y-1 hover:shadow-2xl hover:shadow-purple-500/20"
+      className="block bg-white dark:bg-white/5 rounded-lg border border-gray-200 dark:border-white/10 shadow-xl dark:shadow-lg backdrop-blur-sm overflow-hidden transition-all duration-300 hover:border-purple-400/50 hover:-translate-y-1 hover:shadow-2xl hover:shadow-purple-500/20"
       aria-label={`View certificate for ${cert.title}`}
     >
       <img 
         src={cert.imageUrl} 
         alt={cert.title} 
-        className="w-full h-auto object-contain bg-black"
+        className="w-full h-auto object-contain bg-gray-100 dark:bg-black"
       />
       <div className="p-4">
-        <h4 className="font-bold text-lg text-gray-100">{cert.title}</h4>
-        <p className="text-sm text-purple-400">{cert.issuer}</p>
+        <h4 className="font-bold text-lg text-gray-900 dark:text-gray-100">{cert.title}</h4>
+        <p className="text-sm text-purple-600 dark:text-purple-400">{cert.issuer}</p>
       </div>
     </a>
   );
@@ -153,7 +153,7 @@ const EducationSection: React.FC = () => {
         ))}
       </div>
       <div className="mt-16">
-        <h3 className="text-2xl font-bold text-center mb-8 text-gray-200">Extra Training</h3>
+        <h3 className="text-2xl font-bold text-center mb-8 text-gray-800 dark:text-gray-200">Extra Training</h3>
         <div className="space-y-8">
             {trainings.map((train, index) => (
               <TrainingCard key={index} train={train} />
@@ -161,7 +161,7 @@ const EducationSection: React.FC = () => {
         </div>
       </div>
       <div className="mt-16">
-        <h3 className="text-2xl font-bold text-center mb-8 text-gray-200">Certifications</h3>
+        <h3 className="text-2xl font-bold text-center mb-8 text-gray-800 dark:text-gray-200">Certifications</h3>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {certifications.map((cert, index) => (
               <CertificateCard key={index} cert={cert} />

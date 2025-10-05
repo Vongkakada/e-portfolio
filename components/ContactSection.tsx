@@ -48,14 +48,14 @@ const ContactSection: React.FC = () => {
   };
 
   return (
-    <Section id="contact" title="Get In Touch" className="bg-black/20">
+    <Section id="contact" title="Get In Touch" className="bg-gray-100 dark:bg-gray-900">
       <div className="text-center max-w-2xl mx-auto">
-        <p className="text-lg text-gray-400 mb-8">
+        <p className="text-lg text-gray-600 dark:text-gray-400 mb-8">
           I'm currently open to new opportunities and collaborations. Feel free to send me a message, and I'll get back to you as soon as possible.
         </p>
       </div>
 
-      <div className="max-w-xl mx-auto bg-white/5 p-8 rounded-lg shadow-lg border border-white/10 backdrop-blur-sm">
+      <div className="max-w-xl mx-auto bg-white dark:bg-white/5 p-8 rounded-lg shadow-xl dark:shadow-lg border border-gray-200 dark:border-white/10 backdrop-blur-sm">
         <form ref={form} onSubmit={handleSubmit}>
             <div className="grid grid-cols-1 gap-y-6">
               <div>
@@ -65,7 +65,7 @@ const ContactSection: React.FC = () => {
                   name="full-name"
                   id="full-name"
                   autoComplete="name"
-                  className="block w-full shadow-sm py-3 px-4 bg-gray-800/50 border-gray-700 rounded-md placeholder-gray-500 focus:ring-purple-500 focus:border-purple-500"
+                  className="block w-full shadow-sm py-3 px-4 bg-gray-100 dark:bg-gray-800/50 border-gray-300 dark:border-gray-700 rounded-md placeholder-gray-500 dark:placeholder-gray-400 focus:ring-purple-500 focus:border-purple-500"
                   placeholder="Full name"
                   value={fullName}
                   onChange={(e) => setFullName(e.target.value)}
@@ -81,7 +81,7 @@ const ContactSection: React.FC = () => {
                   name="email"
                   id="email"
                   autoComplete="email"
-                  className="block w-full shadow-sm py-3 px-4 bg-gray-800/50 border-gray-700 rounded-md placeholder-gray-500 focus:ring-purple-500 focus:border-purple-500"
+                  className="block w-full shadow-sm py-3 px-4 bg-gray-100 dark:bg-gray-800/50 border-gray-300 dark:border-gray-700 rounded-md placeholder-gray-500 dark:placeholder-gray-400 focus:ring-purple-500 focus:border-purple-500"
                   placeholder="Email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
@@ -96,7 +96,7 @@ const ContactSection: React.FC = () => {
                   id="message"
                   name="message"
                   rows={4}
-                  className="block w-full shadow-sm py-3 px-4 bg-gray-800/50 border-gray-700 rounded-md placeholder-gray-500 focus:ring-purple-500 focus:border-purple-500"
+                  className="block w-full shadow-sm py-3 px-4 bg-gray-100 dark:bg-gray-800/50 border-gray-300 dark:border-gray-700 rounded-md placeholder-gray-500 dark:placeholder-gray-400 focus:ring-purple-500 focus:border-purple-500"
                   placeholder="Message"
                   value={message}
                   onChange={(e) => setMessage(e.target.value)}
@@ -117,22 +117,22 @@ const ContactSection: React.FC = () => {
             </div>
           </form>
         
-        {status === 'success' && <p className="mt-4 text-center text-green-400">Thank you! Your message has been sent successfully.</p>}
-        {status === 'error' && <p className="mt-4 text-center text-red-400">Oops! Something went wrong. Please try again later.</p>}
+        {status === 'success' && <p className="mt-4 text-center text-green-500 dark:text-green-400">Thank you! Your message has been sent successfully.</p>}
+        {status === 'error' && <p className="mt-4 text-center text-red-500 dark:text-red-400">Oops! Something went wrong. Please try again later.</p>}
       </div>
 
       <div className="text-center mt-12 space-y-6">
         <div>
-          <p className="text-gray-400">Email</p>
-          <a href="mailto:vongkakada168@gmail.com" className="text-lg font-semibold text-purple-400 hover:underline">vongkakada168@gmail.com</a>
+          <p className="text-gray-500 dark:text-gray-400">Email</p>
+          <a href="mailto:vongkakada168@gmail.com" className="text-lg font-semibold text-purple-600 dark:text-purple-400 hover:underline">vongkakada168@gmail.com</a>
         </div>
         <div>
-          <p className="text-gray-400">Phone</p>
-          <a href="tel:+85566700401" className="text-lg font-semibold text-gray-300 hover:text-white">(+855) 66 700 401</a>
+          <p className="text-gray-500 dark:text-gray-400">Phone</p>
+          <a href="tel:+85566700401" className="text-lg font-semibold text-gray-800 dark:text-gray-300 hover:text-black dark:hover:text-white">(+855) 66 700 401</a>
         </div>
         <div>
-          <p className="text-gray-400">Address</p>
-          <p className="text-lg font-semibold text-gray-300">No 12, St 149, Kampong Cham, Cambodia</p>
+          <p className="text-gray-500 dark:text-gray-400">Address</p>
+          <p className="text-lg font-semibold text-gray-800 dark:text-gray-300">No 12, St 149, Kampong Cham, Cambodia</p>
         </div>
       </div>
     </Section>

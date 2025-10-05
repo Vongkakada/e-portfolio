@@ -22,17 +22,17 @@ const HeroSection: React.FC = () => {
             <img 
               src="https://scontent.fpnh5-6.fna.fbcdn.net/v/t39.30808-6/496864008_701392465591870_7424581435838411008_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=a5f93a&_nc_eui2=AeEWwrDcYOVz_9OINsIUoN1SDga04x-oSiQOBrTjH6hKJBcKKsJAcQsDgiLUjL5PFBcSe3c83w9rkRYrw_HQyU1S&_nc_ohc=zp_PBakJA7sQ7kNvwGG-tBM&_nc_oc=AdlZNIcqgOMr0PzAKF41ygSqhSmoDhmB6tvGssnF1rcPhXTy62niEbWn5dRCpzx3HDk&_nc_zt=23&_nc_ht=scontent.fpnh5-6.fna&_nc_gid=jF1SDFyDct3esH_D1KvtJg&oh=00_AfZUUXLNW3BVk5J23oZsgxcCoRlMcixmvla5StymKR28ow&oe=68E18703" 
               alt="VONG KAKADA" 
-              className="rounded-full w-48 h-48 md:w-64 md:h-64 object-cover mx-auto shadow-2xl ring-4 ring-offset-4 ring-offset-[#0F0F0F] ring-purple-500"
+              className="rounded-full w-48 h-48 md:w-64 md:h-64 object-cover mx-auto shadow-2xl ring-4 ring-offset-4 ring-offset-gray-50 dark:ring-offset-[#0F0F0F] ring-purple-500"
             />
           </div>
           <div className="md:w-2/3 text-center md:text-left">
             <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight bg-gradient-to-r from-cyan-400 via-blue-500 to-cyan-400 bg-clip-text text-transparent">
               Hi, I'm VONG KAKADA
             </h1>
-            <p className="mt-4 text-lg md:text-xl text-purple-400 font-bold">
+            <p className="mt-4 text-lg md:text-xl text-purple-600 dark:text-purple-400 font-bold">
               Computer Science Educator & Technologist
             </p>
-            <p className="mt-6 max-w-2xl text-base text-gray-400 leading-relaxed">
+            <p className="mt-6 max-w-2xl text-base text-gray-600 dark:text-gray-400 leading-relaxed">
              I specialize in making complex computer science concepts accessible and engaging for learners of all levels. With a passion for both education and technology, I aim to inspire the next generation of innovators.
             </p>
             <div className="mt-8 flex justify-center md:justify-start items-center gap-4">
@@ -50,7 +50,7 @@ const HeroSection: React.FC = () => {
             </div>
             <div className="mt-8 flex justify-center md:justify-start space-x-4">
               {socialLinks.map(link => (
-                <a key={link.name} href={link.url} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white hover:bg-cyan-500/80 p-2 rounded-full transition-all transform hover:scale-110">
+                <a key={link.name} href={link.url} target="_blank" rel="noopener noreferrer" className="text-gray-500 dark:text-gray-400 hover:text-cyan-600 dark:hover:text-white hover:bg-cyan-100 dark:hover:bg-cyan-500/80 p-2 rounded-full transition-all transform hover:scale-110">
                   <span className="sr-only">{link.name}</span>
                   <link.icon className="w-6 h-6" />
                 </a>

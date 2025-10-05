@@ -50,7 +50,7 @@ const projects: Project[] = [
 
 const ProjectCard: React.FC<{ project: Project; onClick: () => void }> = ({ project, onClick }) => (
   <div 
-    className="bg-white/5 border border-white/10 rounded-lg shadow-lg overflow-hidden group transition-all duration-300 transform hover:-translate-y-2 hover:shadow-2xl hover:shadow-purple-500/20 hover:rotate-[-2deg] cursor-pointer backdrop-blur-sm"
+    className="bg-white dark:bg-white/5 border border-gray-200 dark:border-white/10 rounded-lg shadow-lg overflow-hidden group transition-all duration-300 transform hover:-translate-y-2 hover:shadow-2xl hover:shadow-purple-500/20 hover:rotate-[-2deg] cursor-pointer backdrop-blur-sm"
     onClick={onClick}
     onKeyDown={(e) => (e.key === 'Enter' || e.key === ' ') && onClick()}
     role="button"
@@ -61,16 +61,16 @@ const ProjectCard: React.FC<{ project: Project; onClick: () => void }> = ({ proj
         <img src={project.imageUrls[0]} alt={project.title} className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300 ease-in-out" />
     </div>
     <div className="p-6">
-      <h3 className="text-xl font-bold mb-2 text-gray-100">{project.title}</h3>
-      <p className="text-gray-400 mb-4 text-sm">{project.description}</p>
+      <h3 className="text-xl font-bold mb-2 text-gray-900 dark:text-gray-100">{project.title}</h3>
+      <p className="text-gray-600 dark:text-gray-400 mb-4 text-sm">{project.description}</p>
       <div className="flex flex-wrap gap-2 mb-4">
         {project.tags.map(tag => (
-          <span key={tag} className="bg-gray-800 text-purple-300 text-xs font-semibold px-2.5 py-1 rounded-full border border-gray-700">{tag}</span>
+          <span key={tag} className="bg-gray-100 text-purple-800 dark:bg-gray-800 dark:text-purple-300 text-xs font-semibold px-2.5 py-1 rounded-full border border-gray-200 dark:border-gray-700">{tag}</span>
         ))}
       </div>
       <div className="mt-4 flex items-center space-x-4">
         {project.liveUrl && (
-          <a href={project.liveUrl} target="_blank" rel="noopener noreferrer" onClick={e => e.stopPropagation()} className="text-pink-500 hover:text-pink-400 font-semibold text-sm">
+          <a href={project.liveUrl} target="_blank" rel="noopener noreferrer" onClick={e => e.stopPropagation()} className="text-pink-600 hover:text-pink-500 dark:text-pink-500 dark:hover:text-pink-400 font-semibold text-sm">
             Live Demo →
           </a>
         )}

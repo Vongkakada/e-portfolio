@@ -39,25 +39,25 @@ const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) => {
       aria-labelledby="project-modal-title"
     >
       <div 
-        className="bg-[#1a1a1a] text-gray-300 border border-white/10 rounded-lg shadow-2xl w-full max-w-3xl max-h-[90vh] overflow-y-auto relative"
+        className="bg-gray-50 dark:bg-[#1a1a1a] text-gray-800 dark:text-gray-300 border border-gray-200 dark:border-white/10 rounded-lg shadow-2xl w-full max-w-3xl max-h-[90vh] overflow-y-auto relative"
         onClick={(e) => e.stopPropagation()}
       >
         <button 
           onClick={onClose}
-          className="absolute top-4 right-4 text-gray-500 hover:text-white transition-colors z-10"
+          className="absolute top-4 right-4 text-gray-500 hover:text-gray-900 dark:hover:text-white transition-colors z-10"
           aria-label="Close modal"
         >
           <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"></path></svg>
         </button>
         <ImageSlideshow urls={project.imageUrls} alt={project.title} className="w-full h-64 rounded-t-lg" />
         <div className="p-6 md:p-8">
-          <h2 id="project-modal-title" className="text-2xl md:text-3xl font-bold mb-3 text-gray-100">{project.title}</h2>
+          <h2 id="project-modal-title" className="text-2xl md:text-3xl font-bold mb-3 text-gray-900 dark:text-gray-100">{project.title}</h2>
           <div className="flex flex-wrap gap-2 mb-4">
             {project.tags.map(tag => (
-              <span key={tag} className="bg-purple-900/40 text-purple-300 text-xs font-semibold px-2.5 py-1 rounded-full border border-purple-800/50">{tag}</span>
+              <span key={tag} className="bg-purple-100 text-purple-800 dark:bg-purple-900/40 dark:text-purple-300 text-xs font-semibold px-2.5 py-1 rounded-full border border-purple-200 dark:border-purple-800/50">{tag}</span>
             ))}
           </div>
-          <p className="text-gray-400 leading-relaxed mb-6">{project.detailedDescription}</p>
+          <p className="text-gray-600 dark:text-gray-400 leading-relaxed mb-6">{project.detailedDescription}</p>
           <div className="mt-6 flex items-center space-x-4">
             {project.liveUrl && (
               <a href={project.liveUrl} target="_blank" rel="noopener noreferrer" className="inline-block bg-gradient-to-r from-purple-600 to-pink-600 text-white font-bold py-2 px-5 rounded-lg hover:from-purple-700 hover:to-pink-700 transition-transform transform hover:scale-105 shadow-md">

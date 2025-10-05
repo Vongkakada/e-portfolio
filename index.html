@@ -22,22 +22,41 @@
     <meta name="twitter:image" content="https://ik.imagekit.io/9qcuiwxwi/Screenshot%202025-09-30%20165636.png">
     
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {},
+        }
+      }
+    </script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700;800&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
-      /* Custom scrollbar for a dark theme */
+      /* --- Light Mode Scrollbar --- */
       ::-webkit-scrollbar {
         width: 8px;
       }
       ::-webkit-scrollbar-track {
-        background: #1a1a1a;
+        background: #f1f1f1;
       }
       ::-webkit-scrollbar-thumb {
-        background: #4a4a4a;
+        background: #a855f7;
         border-radius: 4px;
       }
       ::-webkit-scrollbar-thumb:hover {
+        background: #ec4899;
+      }
+
+      /* --- Dark Mode Scrollbar --- */
+      html.dark ::-webkit-scrollbar-track {
+        background: #1a1a1a;
+      }
+      html.dark ::-webkit-scrollbar-thumb {
+        background: #4a4a4a;
+      }
+      html.dark ::-webkit-scrollbar-thumb:hover {
         background: #a855f7;
       }
 
@@ -49,16 +68,19 @@
         font-family: 'Poppins', sans-serif;
       }
 
-      /* Animated Gradient Background for Hero */
+      /* Animated Gradient Background */
       @keyframes gradient-animation {
         0% { background-position: 0% 50%; }
         50% { background-position: 100% 50%; }
         100% { background-position: 0% 50%; }
       }
       .animated-gradient-bg {
-        background: linear-gradient(-45deg, #0F0F0F, #a855f7, #ec4899, #1a1a1a);
+        background: linear-gradient(-45deg, #f0f9ff, #a855f7, #ec4899, #fce7f3);
         background-size: 400% 400%;
         animation: gradient-animation 20s ease infinite;
+      }
+      html.dark .animated-gradient-bg {
+        background: linear-gradient(-45deg, #0F0F0F, #a855f7, #ec4899, #1a1a1a);
       }
 
       /* Scroll Progress Bar */
@@ -141,8 +163,16 @@
 </script>
 <!-- EmailJS script -->
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script>
+  // On page load or when changing themes, best to add inline in `head` to avoid FOUC
+  if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+    document.documentElement.classList.add('dark')
+  } else {
+    document.documentElement.classList.remove('dark')
+  }
+</script>
 </head>
-  <body class="bg-[#0F0F0F] text-gray-300">
+  <body class="bg-gray-50 dark:bg-[#0F0F0F] text-gray-700 dark:text-gray-300 transition-colors duration-300">
     <div id="progress-bar"></div>
     <div id="root"></div>
     <script type="module" src="./index.tsx"></script>
